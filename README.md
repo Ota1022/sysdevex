@@ -1,7 +1,7 @@
 # sysdevex
 This is a project of sysdevex.  
 `git status`で現在のブランチを確認。  
-'git checkout ブランチ名'でブランチの切り替え。  
+`git checkout ブランチ名`でブランチの切り替え。  
 `git checkout -b 新しいブランチ名`で新しいブランチを作成して切り替え。  
 
 ## 基本的な流れ  
