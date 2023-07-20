@@ -1,5 +1,2 @@
 # sysdevex
-nagata 
-masatoosuga 
-araaki 
-tsuchiya
+This is a project of sysdevex.
