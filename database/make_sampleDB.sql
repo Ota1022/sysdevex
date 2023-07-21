@@ -24,6 +24,12 @@ CREATE TABLE state
   state_name TEXT
 );
 
+CREATE TABLE state_inventory
+(
+  isin_inventory_code INTEGER PRIMARY KEY,
+  isin_inventory_name TEXT
+);
+
 CREATE TABLE user_table
 (
   user_id SERIAL PRIMARY KEY,
@@ -53,13 +59,14 @@ CREATE TABLE inventory
   user_id INTEGER,
   state_code INTEGER,
   price INTEGER,
-  isin_inventory INTEGER,
+  isin_inventory_code INTEGER,
   note TEXT,
   inventory_regist_date DATE,
   inventory_update_date DATE,
   FOREIGN KEY(isbn) REFERENCES textbook(isbn),
   FOREIGN KEY(user_id) REFERENCES user_table(user_id),
-  FOREIGN KEY(state_code) REFERENCES state(state_code)
+  FOREIGN KEY(state_code) REFERENCES state(state_code),
+  FOREIGN KEY(isin_inventory_code) REFERENCES state_inventory(isin_inventory_code)
 );
 
 CREATE TABLE sell
@@ -73,33 +80,38 @@ CREATE TABLE sell
 );
 
 /*category*/
-INSERT INTO category(category_code, category_name) VALUES(0, '•¶Šw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(1, '‹³ˆçŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(2, '–@Šw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(3, 'Ğ‰ïŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(4, 'ŒoÏŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(5, '—Šw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(6, 'ˆãŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(7, '•Šw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(8, '–òŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(9, 'HŠw•”Œn');
-INSERT INTO category(category_code, category_name) VALUES(10, '”_Šw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(0, 'æ–‡å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(1, 'æ•™è‚²å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(2, 'æ³•å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(3, 'ç¤¾ä¼šå­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(4, 'çµŒæ¸ˆå­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(5, 'ç†å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(6, 'åŒ»å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(7, 'æ­¯å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(8, 'è–¬å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(9, 'å·¥å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(10, 'è¾²å­¦éƒ¨ç³»');
 
 /*state*/
-INSERT INTO state(state_code, state_name) VALUES(0, 'V•iA–¢g—p');
-INSERT INTO state(state_code, state_name) VALUES(1, '–¢g—p‚É‹ß‚¢');
-INSERT INTO state(state_code, state_name) VALUES(2, '–Ú—§‚Á‚½‚â‰˜‚ê‚È‚µ');
-INSERT INTO state(state_code, state_name) VALUES(3, '‚â‚â‚â‰˜‚ê‚ ‚è');
-INSERT INTO state(state_code, state_name) VALUES(4, '‚â‰˜‚ê‚ ‚è');
-INSERT INTO state(state_code, state_name) VALUES(5, '‘S‘Ì“I‚Éó‘Ô‚ªˆ«‚¢');
+INSERT INTO state(state_code, state_name) VALUES(0, 'æ–°å“ã€æœªä½¿ç”¨');
+INSERT INTO state(state_code, state_name) VALUES(1, 'æœªä½¿ç”¨ã«è¿‘ã„');
+INSERT INTO state(state_code, state_name) VALUES(2, 'ç›®ç«‹ã£ãŸå‚·ã‚„æ±šã‚Œãªã—');
+INSERT INTO state(state_code, state_name) VALUES(3, 'ã‚„ã‚„å‚·ã‚„æ±šã‚Œã‚ã‚Š');
+INSERT INTO state(state_code, state_name) VALUES(4, 'å‚·ã‚„æ±šã‚Œã‚ã‚Š');
+INSERT INTO state(state_code, state_name) VALUES(5, 'å…¨ä½“çš„ã«çŠ¶æ…‹ãŒæ‚ªã„');
+
+/*state_inventory*/
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(0, 'å£²ã‚Šåˆ‡ã‚Œ');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(1, 'å‡ºå“ä¸­');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(2, 'å‡ºå“åœæ­¢');
 
 /*user table*/
 /*admin*/
-/*regist_date, delete_date, birthday‚Í“ü‚ê‚Ä‚È‚¢*/
+/*regist_date, delete_date, birthdayã¯å…¥ã‚Œã¦ãªã„*/
 INSERT INTO user_table(name, email, password) VALUES('admin', 'admin@test.ac.jp', 'himitu');
 /*user*/
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', '“Œ‹“sVh‹æ', '03-1111-1111', '2023-06-20', '1999-01-01');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', '“Œ‹“s•iì‹æ', '03-1111-1111', '2023-07-19', '2000-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', 'æ±äº¬éƒ½æ–°å®¿åŒº', '03-1111-1111', '2023-06-20', '1999-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', 'æ±äº¬éƒ½å“å·åŒº', '03-1111-1111', '2023-07-19', '2000-01-01');
 
 /*textbook*/
 INSERT INTO textbook(isbn, category_code, title, author) VALUES('0000000000000', 0, 'test book 0', 'test author 0');
@@ -107,14 +119,15 @@ INSERT INTO textbook(isbn, category_code, title, author) VALUES('1111111111111',
 INSERT INTO textbook(isbn, category_code, title, author) VALUES('2222222222222', 2, 'test book 2', 'test author 2');
 
 /*inventory*/
-INSERT INTO inventory(isbn, user_id, state_code, price, isin_inventory, note, inventory_regist_date, inventory_update_date) VALUES('0000000000000', 2, 0, 500, 0, 'test (sold)', '2023-07-19', '2023-07-20');
-INSERT INTO inventory(isbn, user_id, state_code, price, isin_inventory, note, inventory_regist_date, inventory_update_date) VALUES('0000000000000', 2, 1, 1000, 1, 'test (not sold)', '2023-07-20', '2023-07-20');
+INSERT INTO inventory(isbn, user_id, state_code, price, isin_inventory_code, note, inventory_regist_date, inventory_update_date) VALUES('0000000000000', 2, 0, 500, 0, 'test (sold)', '2023-07-19', '2023-07-20');
+INSERT INTO inventory(isbn, user_id, state_code, price, isin_inventory_code, note, inventory_regist_date, inventory_update_date) VALUES('1111111111111', 2, 1, 1000, 1, 'test (not sold)', '2023-07-20', '2023-07-20');
 
 /*sell*/
 INSERT INTO sell(user_id, inventory_id, sell_date) VALUES(1, 1, '2023-07-20');
 
 ALTER TABLE category OWNER TO student;
 ALTER TABLE state OWNER TO student;
+ALTER TABLE state_inventory OWNER TO student;
 ALTER TABLE user_table OWNER TO student;
 ALTER TABLE textbook OWNER TO student;
 ALTER TABLE inventory OWNER TO student;
