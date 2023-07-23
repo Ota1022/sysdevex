@@ -5,6 +5,16 @@
 	height: auto;
 }
 
+.wrapper {
+	margin: 20px auto 0;
+	max-width: 1200px;
+	background-color: #f5f5f5;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
 *,
 *:before,
 *:after {
@@ -16,6 +26,11 @@ a {
 	color: #000;
 }
 
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 body {
 	font-family: "Roboto", sans-serif;
 	background-color: #444654;
@@ -24,6 +39,53 @@ body {
 	padding: 0;
 }
 
+
+.sr-only {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	color: #000;
+	background-color: #808080;
+	min-width: 120px;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.button svg {
+	display: inline-block;
+	vertical-align: middle;
+	width: 24px;
+	height: 24px;
+	fill: #fff;
+}
+
+.button span {
+	display: none;
+}
+
+@media (min-width: 600px) {
+	.button span {
+		display: initial;
+	}
+}
+
+.button--icon {
+	min-width: initial;
+	padding: 0.5rem;
+}
+
+
 .site-header {
 	position: relative;
 	background-color: #003831;
@@ -31,6 +93,12 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
+}
+
+
+.brand {
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .site-header__start {
@@ -43,6 +111,45 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	padding: 0 5rem;
+}
+
+.site-header__wrapper {
+	flex-wrap: nowrap;
+}
+
+@media (min-width: 800px) {
+	.site-header__wrapper {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@media (min-width: 800px) {
+	.nav__wrapper {
+		display: flex;
+		align-items: center;
+	}
+}
+
+@media (max-width: 799px) {
+	.nav__wrapper {
+		position: absolute;
+		top: calc(100% + 35px);
+		right: 0;
+		left: 0;
+		z-index: -1;
+		background-color: #03A100;
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(-100%);
+		transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+	}
+
+	.nav__wrapper.active {
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .nav__item:not(:last-child) {
@@ -58,6 +165,31 @@ body {
 	border-bottom: 2px solid transparent;
 }
 
+
+@media (min-width: 800px) {
+	.nav__item a {
+		text-align: center;
+		border-left: 0;
+		border-bottom: 4px solid transparent;
+	}
+}
+
+.nav__item svg {
+	display: inline-block;
+	vertical-align: middle;
+	width: 28px;
+	height: 28px;
+	margin-right: 1rem;
+}
+
+@media (min-width: 800px) {
+	.nav__item svg {
+		display: block;
+		margin: 0 auto 0.5rem;
+	}
+}
+
+
 .nav__item.active a {
 	border-left-color: #fff;
 }
@@ -67,6 +199,94 @@ body {
 		border-bottom-color: #fff;
 	}
 }
+
+.nav__toggle {
+	display: none;
+}
+
+@media (max-width: 799px) {
+	.nav__toggle {
+		display: block;
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+	}
+}
+
+.search {
+	display: flex;
+	margin-left: 1rem;
+}
+
+.search__toggle {
+	appearance: none;
+	order: 1;
+	font-size: 0;
+	width: 34px;
+	height: 34px;
+	background: url("../img/header-3/search.svg") center right/22px no-repeat;
+	border: 0;
+	display: none;
+	background-color: #808080
+}
+
+@media (min-width: 800px) {
+	.search__toggle {
+		border-left: 1px solid #979797;
+		padding-left: 10px;
+	}
+}
+
+@media (max-width: 799px) {
+	.search__toggle {
+		position: absolute;
+		right: 5.5rem;
+		top: 0.65rem;
+		background: url("../img/header-3/search.svg") center/22px no-repeat;
+	}
+}
+
+.search__form {
+	display: block;
+}
+
+.search__form.active {
+	display: block;
+}
+
+@media (max-width: 799px) {
+	.search__form {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+	}
+
+	.search__form input {
+		width: 100%;
+	}
+}
+
+.search__form input {
+	min-width: 200px;
+	appearance: none;
+	border: 0;
+	background-color: #fff;
+	border-radius: 0;
+	font-size: 16px;
+	padding: 0.5rem;
+}
+
+@media (max-width: 799px) {
+	.search__form input {
+		border-bottom: 1px solid #979797;
+	}
+}
+
+.inactive-item {
+	opacity: 0;
+}
+
 
 .content {
 	background-color: #FFFFFF;
