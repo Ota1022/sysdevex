@@ -5,20 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>トップ</title>
+<title>購入確認</title>
 </head>
 <body>
 
 
 
 <div style="text-align: center">
-
-<h1>教科書売買システム</h1>
-
-<a href="/tbsystem_user/PurchaseServlet">全表示</a>
-<c:forEach items="${categoryList }" var="category">
-	<a href="/tbsystem_user/PurchaseServlet?=${category.categoryID }">${category.categoryName }</a>
-</c:forEach>
+	<h1>ご注文ありがとうございました<br>注文番号：${receiptID }</h1>
 
 </div>
 </body>
