@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者トップ</title>
 </head>
 <body>
-<h1>教科書売買システム</h1>
+<div style="text-align: center">
+<h1>在庫を出品停止しました</h1>
+</div>
 </body>
 </html>
