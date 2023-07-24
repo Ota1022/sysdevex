@@ -13,11 +13,11 @@
 		<font size="7">本当に退会しますか</font><br>
 	</div>
 
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="deleteUserComplete">
 		<input type="submit" value="はい">
 	</form>
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="userInfo">
 		<input type="submit" value="いいえ">
 	</form>

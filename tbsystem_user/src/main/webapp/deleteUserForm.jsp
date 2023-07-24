@@ -18,12 +18,12 @@
 	<br> パスワード：
 
 
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="deleteUserConfirm">
 		<input type="text" name="password"> <input type="submit"
 			value="確認">
 	</form>
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="userInfo"> <input
 			type="submit" value="戻る">
 	</form>

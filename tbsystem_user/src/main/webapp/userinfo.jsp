@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ユーザ情報</title>
+<title>会員情報</title>
 </head>
 <body>
 	<div style="text-align: center">
@@ -19,12 +19,12 @@
 	住所：${email}<br>
 	電話番号：${tel}
 
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUser">
 		<input type="text" name="password"> <input type="submit"
 			value="更新">
 	</form>
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="deleteUserForm"> <input
 			type="submit" value="退会">
 	</form>

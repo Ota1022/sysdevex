@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>更新確認</title>
+<title>会員情報の更新確認</title>
 </head>
 <body>
 	<div style="text-align: center">
@@ -18,11 +18,11 @@
 	<br> 住所：${email}
 	<br> 電話番号：${tel}
 
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserComplete">
 		<input type="submit" value="はい">
 	</form>
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUser"> <input
 			type="submit" value="いいえ">
 	</form>

@@ -17,7 +17,7 @@
 	氏名：${name}
 	<br> 大学メールアドレス：${email}
 	<br> 住所：
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserConfirm">
 		<input type="text" name="adress"> 
 	<br> 電話番号：

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>会員情報の更新確認</title>
+<title>会員情報の更新完了</title>
 </head>
 <body>
 	<div style="text-align: center">
