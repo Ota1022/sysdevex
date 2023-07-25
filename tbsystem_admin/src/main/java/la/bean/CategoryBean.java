@@ -9,8 +9,8 @@ public class CategoryBean {
 	}
 
 	public CategoryBean(int categoryID, String categoryName) {
-		categoryID = this.categoryID;
-		categoryName = this.categoryName;
+		this.categoryID = categoryID;
+		this.categoryName = categoryName;
 	}
 
 	public int getCategoryID() {

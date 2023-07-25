@@ -17,7 +17,7 @@
 	登録内容を入力してください
 	<br>
 
-	<form action="/tbsystem_admin/AdminSearchTextbookServlet" method="post">
+	<form action="/tbsystem_admin/AdminRegistTextbookServlet" method="post">
 		<table>
 			<tr>
 				<td><div style="text-align: right">ISBN：</div></td>
@@ -32,7 +32,7 @@
 				<td><select name="categoryCheck">
 						<option>カテゴリを選択してください</option>
 						<c:forEach items="${categoryList}" var="category">
-							<option value="${category.category_code }">${category.category_name }</option>
+							<option value="${category.categoryID}">${category.categoryName}</option>
 						</c:forEach>
 				</select></td>
 			</tr>
@@ -44,7 +44,7 @@
 				<td></td>
 				<td style="text-align: right"><input type="hidden"
 					name="action" value="registTextbookConfirm"> <input
-					type="submit" value="更新"></td>
+					type="submit" value="登録"></td>
 			</tr>
 		</table>
 	</form>
