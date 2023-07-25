@@ -44,35 +44,65 @@ public class AdminSearchInventoryServlet extends HttpServlet {
 			if (action == null || action.length() == 0) {
 				list = dao.findAll();
 				request.setAttribute("inventory", list);
-				System.out.print(list);
 				gotoPage(request, response, "/adminSearchInventory.jsp");
 			} else if (action.equals("stopInventoryComplete")) {
+				int inventory_id = Integer.parseInt(request.getParameter("inventory_id"));
+				dao.stopInventory(inventory_id);
 				gotoPage(request, response, "/adminStopInventoryComplete.jsp");
 				return;
 
 			} else if (action.equals("updateInventory")) {
-
+				int inventory_id = Integer.parseInt(request.getParameter("inventory_id"));
+				InventoryBean bean = dao.findInventoryID(inventory_id);
+				request.setAttribute("inventory", bean);
 				gotoPage(request, response, "/adminUpdateInventory.jsp");
 				return;
 
 			} else if (action.equals("stopInventoryConfirm")) {
-
+				int inventory_id = Integer.parseInt(request.getParameter("inventory_id"));
+				InventoryBean bean = dao.findInventoryID(inventory_id);
+				request.setAttribute("inventory", bean);
 				gotoPage(request, response, "/adminStopInventoryConfirm.jsp");
 				return;
 
 			} else if (action.equals("searchInventory")) {
-
+				list = dao.findAll();
+				request.setAttribute("inventory", list);
 				gotoPage(request, response, "/adminSearchInventory.jsp");
 				return;
 			} else if (action.equals("returnSearchInventory")) {
-
+				String pull = request.getParameter("pull");
+				String query = request.getParameter("query");
+				list = dao.findSearchWord(pull, query);
+				request.setAttribute("inventory", list);
 				gotoPage(request, response, "/adminSearchInventory.jsp");
 				return;
 			} else if (action.equals("updateInventoryConfirm")) {
+				int inventory_id = Integer.parseInt(request.getParameter("inventory_id"));
+				int price = Integer.parseInt(request.getParameter("price"));
+				int state_code = Integer.parseInt(request.getParameter("state_name"));
+				String state_name = dao.findStateName(state_code);
+				String note = request.getParameter("note");
+				InventoryBean bean = dao.findInventoryID(inventory_id);
+				request.setAttribute("inventory", bean);
+				request.setAttribute("price", price);
+				request.setAttribute("state_name", state_name);
+				request.setAttribute("note", note);
 				gotoPage(request, response, "/adminUpdateInventoryConfirm.jsp");
 				return;
 			} else if (action.equals("updateInventoryComplete")) {
-				gotoPage(request, response, "adminUpdateInventoryComplete.jsp");
+				int inventory_id = Integer.parseInt(request.getParameter("inventory_id"));
+				int price = Integer.parseInt(request.getParameter("price"));
+				String state_name = request.getParameter("state_name");
+				int state_code = dao.findStateCode(state_name);
+				String note = request.getParameter("note");
+				dao.updateInventory(inventory_id, price, state_code, note);
+				gotoPage(request, response, "/adminUpdateInventoryComplete.jsp");
+				return;
+			} else if (action.equals("adminSearchInventory")) {
+				list = dao.findAll();
+				request.setAttribute("inventory", list);
+				gotoPage(request, response, "/adminSearchInventory.jsp");
 				return;
 			}
 

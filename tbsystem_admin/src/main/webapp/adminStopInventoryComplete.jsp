@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +7,13 @@
 <title>管理者トップ</title>
 </head>
 <body>
-<div style="text-align: center">
-<h1>在庫を出品停止しました</h1>
-</div>
+	<div style="text-align: center">
+		<h1>在庫を出品停止しました</h1>
+	</div>
 </body>
+<footer>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
+</footer>
 </html>
