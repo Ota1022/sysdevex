@@ -110,14 +110,16 @@ body {
 
 .site-header__start {
 	flex: 1 0 auto;
-	padding: 0 5rem;  /* add padding to left and right */
+	padding: 0 5rem;
+	/* add padding to left and right */
 }
 
 .site-header__end {
 	flex: 1 0 auto;
 	display: flex;
 	justify-content: flex-end;
-	padding: 0 5rem;  /* add padding to left and right */
+	padding: 0 5rem;
+	/* add padding to left and right */
 }
 
 .site-header__wrapper {
@@ -322,4 +324,14 @@ body {
 	padding: 1em;
 	/* This adds some space around your content */
 	min-height: 850px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
 }
