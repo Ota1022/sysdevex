@@ -24,7 +24,6 @@
 				type="submit" value="検索">
 		</form>
 		<br>
-
 		<table border="1">
 			<tr>
 				<th>ID</th>
