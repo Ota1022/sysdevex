@@ -17,8 +17,15 @@
 
 <a href="/tbsystem_user/PurchaseServlet">全表示</a>
 <c:forEach items="${categoryList }" var="category">
-	<a href="/tbsystem_user/PurchaseServlet?=${category.categoryID }">${category.categoryName }</a>
+	<a href="/tbsystem_user/PurchaseServlet?category_code=${category.categoryID }&action=itemList">${category.categoryName }</a>
 </c:forEach>
+
+<select name="categoryCheck" id="">
+			<option>全学部系</option>
+			<c:forEach items="${categoryList}" var="category">
+				<option value="${category.category_code }">${category.category_name }</option>
+			</c:forEach>
+</select>
 
 </div>
 </body>
