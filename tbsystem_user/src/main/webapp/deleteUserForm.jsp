@@ -14,18 +14,18 @@
 		<font size="7">退会処理のためにパスワードを確認します</font><br>
 	</div>
 
-	${message}
-	<br> パスワード：
-
-
+	<p>${message}</p>
+	<p>パスワード：
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="deleteUserConfirm">
-		<input type="text" name="password"> <input type="submit"
-			value="確認">
+		<input type="text" name="password"></p>
+		<p>
+		<input type="submit"value="確認">
 	</form>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
-		<input type="hidden" name="action" value="userInfo"> <input
-			type="submit" value="戻る">
+		<input type="hidden" name="action" value="userInfo">
+		<input type="submit" value="戻る">
+		</p>
 	</form>
 
 </body>

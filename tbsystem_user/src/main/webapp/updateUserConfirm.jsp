@@ -10,23 +10,27 @@
 </head>
 <body>
 	<div style="text-align: center">
-		<font size="7">以下の会員情報で更新しますか</font><br> <font size="3">会員情報</font><br>
+		<font size="7">以下の会員情報で更新しますか</font>
 	</div>
-
-	氏名：${name}
-	<br> 大学メールアドレス：${email}
-	<br> 住所：${email}
-	<br> 電話番号：${tel}
+	<form action="/tbsystem_user/MyPageServlet" method="post">
+		<p>氏名：${user.name}</p>
+		<p>大学メールアドレス：${user.email}</p>
+		<p>住所：${user.address}</p>
+		<p>電話番号：${user.tel}</p>
 
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserComplete">
+		<p>
 		<input type="submit" value="はい">
+		<input type="hidden" name="address" value="${user.address}">
+		<input type="hidden" name="tel" value="${user.tel}">
+		<input type="hidden" name="password" value="${user.password}">
 	</form>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
-		<input type="hidden" name="action" value="updateUser"> <input
-			type="submit" value="いいえ">
+		<input type="hidden" name="action" value="updateUser">
+		<input type="submit" value="いいえ">
+		</p>
 	</form>
-
 </body>
 
 <footer>

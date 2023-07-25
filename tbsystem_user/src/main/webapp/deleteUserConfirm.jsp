@@ -14,12 +14,14 @@
 	</div>
 
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
+		<p>
 		<input type="hidden" name="action" value="deleteUserComplete">
 		<input type="submit" value="はい">
 	</form>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="userInfo">
 		<input type="submit" value="いいえ">
+		</p>
 	</form>
 	
 </body>

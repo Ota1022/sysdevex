@@ -70,6 +70,14 @@ public class InventoryBean implements Serializable {
 		this.price = price;
 	}
 
+	public InventoryBean(int inventoryID, Date sellDate, String title, String author, int price) {
+		this.inventoryID = inventoryID;
+		this.sellDate = sellDate;
+		this.title = title;
+		this.author = author;
+		this.price = price;
+	}
+
 	//accessor
 	public int getInventoryID() {
 		return inventoryID;

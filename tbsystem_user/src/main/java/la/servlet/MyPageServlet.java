@@ -52,11 +52,13 @@ public class MyPageServlet extends HttpServlet {
 				request.setAttribute("items", items);
 				gotoPage(request, response, "/displayHistoryNotSold.jsp");
 			} else if (action.equals("userInfo")) {
-				/*MyPageDAO dao = new MyPageDAO();
-				int customerID = session.getAttribute("userID");
-				InventoryBean item = dao.findByPrimaryKey(customerID);
-				request.setAttribute("item", item);*/
-				gotoPage(request, response, "/userInfo.jsp");
+				MyPageDAO dao = new MyPageDAO();
+				HttpSession session = request.getSession(true);
+				UserBean bean = (UserBean) session.getAttribute("user");
+				int userID = bean.getUserID();
+				UserBean user = dao.findByPrimaryKey(userID);
+				request.setAttribute("user", user);
+				gotoPage(request, response, "/userinfo.jsp");
 			} else if (action.equals("updateUser")) {
 				HttpSession session = request.getSession(true);
 				UserBean user = (UserBean) session.getAttribute("user");
@@ -65,16 +67,34 @@ public class MyPageServlet extends HttpServlet {
 			} else if (action.equals("updateUserConfirm")) {
 				//土屋君のコードを基に修正必要
 				HttpSession session = request.getSession(true);
-				UserBean user = (UserBean) session.getAttribute("user");
-				//String address = request.getParameter("address");
-				request.setAttribute("user", user);
-				gotoPage(request, response, "/updateUserConfirm.jsp");
+				UserBean bean = (UserBean) session.getAttribute("user");
+				String address = request.getParameter("address");
+				String tel1 = request.getParameter("tel1");
+				String tel2 = request.getParameter("tel2");
+				String tel3 = request.getParameter("tel3");
+				String tel = tel1 + "-" + tel2 + "-" + tel3;
+				String password = request.getParameter("password");
+				String passwordConfirm = request.getParameter("password_confirm");
+				String name = bean.getName();
+				String email = bean.getEmail();
+				if (password.equals(passwordConfirm)) {
+					UserBean user = new UserBean(name, email, address, tel, password);
+					request.setAttribute("user", user);
+					gotoPage(request, response, "/updateUserConfirm.jsp");
+				} else {
+					request.setAttribute("message", "確認用パスワードが一致しません");
+					gotoPage(request, response, "/updateUser.jsp");
+				}
+
 			} else if (action.equals("updateUserComplete")) {
-				//土屋君のコードを基に修正必要
+				MyPageDAO dao = new MyPageDAO();
 				HttpSession session = request.getSession(true);
-				UserBean user = (UserBean) session.getAttribute("user");
-				//String address = request.getParameter("address");
-				request.setAttribute("user", user);
+				UserBean bean = (UserBean) session.getAttribute("user");
+				int userID = bean.getUserID();
+				String address = request.getParameter("address");
+				String tel = request.getParameter("tel");
+				String password = request.getParameter("password");
+				dao.updateUser(userID, address, tel, password);
 				gotoPage(request, response, "/updateUserComplete.jsp");
 			} else if (action.equals("deleteUserForm")) {
 				HttpSession session = request.getSession(true);

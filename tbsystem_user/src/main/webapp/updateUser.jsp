@@ -13,31 +13,32 @@
 	<div style="text-align: center">
 		<font size="7">会員情報の更新</font><br>
 	</div>
-
-	氏名：${name}
-	<br> 大学メールアドレス：${email}
-	<br> 住所：
+	<p>${message}</p>
+	<p>氏名：${user.name}</p>
+	<p>大学メールアドレス：${user.email}</p>
+	<p>住所：
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserConfirm">
-		<input type="text" name="adress"> 
-	<br> 電話番号：
+		<input type="text" name="address" value="${user.address}"></p>
+	<p>電話番号：
 		<input type="text" name="tel1" required> 
 		-
 		<input type="text" name="tel2" required> 
 		-
-		<input type="text" name="tel3" required> 
+		<input type="text" name="tel3" required>
+		</p>
 
-	<br> パスワード：
-		<input type="text" name="password" required> 
+	<p>パスワード：
+		<input type="password" name="password" required></p>
 
-	<br> パスワード確認用：
-		<input type="text" name="password_confirm" required> 
-		<input type="submit" value="更新">
+	<p>パスワード確認用：
+		<input type="password" name="password_confirm" required></p>
+		<p><input type="submit" value="更新">
 	</form>
 
-	<form action="tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="userInfo"> <input
-			type="submit" value="戻る">
+			type="submit" value="戻る"></p>
 	</form>
 
 </body>

@@ -27,7 +27,6 @@
 	タイトル：${item.title}<br>
 	<input type="hidden" name="title" value="${item.title}">
 	</form>
-	分類：${item.category}<br>
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	著者名：${item.author}<br>
 	<input type="hidden" name="author" value="${item.author}">

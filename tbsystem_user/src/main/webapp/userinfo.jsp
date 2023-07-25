@@ -13,20 +13,20 @@
 	<div style="text-align: center">
 		<font size="7">以下の情報で登録されています</font><br>
 	</div>
-
-	氏名：${name}<br>
-	大学メールアドレス：${email}<br>
-	住所：${email}<br>
-	電話番号：${tel}
+	<p>氏名：${user.name}</p>
+	<p>大学メールアドレス：${user.email}</p>
+	<p>住所：${user.address}</p>
+	<p>電話番号：${user.tel}</p>
 
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUser">
-		<input type="text" name="password"> <input type="submit"
-			value="更新">
+		<p>
+		<input type="submit" value="更新">
 	</form>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
-		<input type="hidden" name="action" value="deleteUserForm"> <input
-			type="submit" value="退会">
+		<input type="hidden" name="action" value="deleteUserForm">
+		<input type="submit" value="退会">
+		</p>
 	</form>
 
 </body>

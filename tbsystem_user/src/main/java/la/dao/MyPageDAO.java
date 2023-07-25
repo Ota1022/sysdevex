@@ -14,7 +14,7 @@ import la.bean.UserBean;
 
 public class MyPageDAO {
 	// URL、ユーザ名、パスワードの準備
-	private String url = "jdbc:postgresql:sample";
+	private String url = "jdbc:postgresql:tbsystem";
 	private String user = "student";
 	private String pass = "himitu";
 
@@ -30,13 +30,12 @@ public class MyPageDAO {
 
 	public List<InventoryBean> findPurchaseHistory(int userID) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT * FROM inventory WHERE user_id=?";
+		String sql = "SELECT inventory.inventory_id, sell.sell_date, textbook.title, textbook.author, sell.user_id, inventory.price FROM inventory INNER JOIN SELL ON inventory.inventory_id=sell.inventory_id INNER JOIN textbook ON inventory.isbn=textbook.isbn WHERE inventory.user_id=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
-			// 値段のセット
 			st.setInt(1, userID);
 
 			try (// SQLの実行
@@ -47,10 +46,10 @@ public class MyPageDAO {
 					int inventoryID = rs.getInt("inventory_id");
 					Date sellDate = rs.getDate("sell_date");
 					String title = rs.getString("title");
-					String categoryName = rs.getString("category_name");
+					//String categoryName = rs.getString("category_name");
 					String author = rs.getString("author");
 					int price = rs.getInt("price");
-					InventoryBean bean = new InventoryBean(inventoryID, sellDate, title, categoryName, author, price);
+					InventoryBean bean = new InventoryBean(inventoryID, sellDate, title, author, price);
 					list.add(bean);
 				}
 				// 商品一覧をListとして返す
@@ -67,7 +66,7 @@ public class MyPageDAO {
 
 	public List<InventoryBean> findByIsinInventory(int userID, int isinInventoryCode) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT * FROM inventory WHERE user_id=? AND isin_inventory_code=?";
+		String sql = "SELECT inventory.inventory_id, inventory.isin_inventory_code, sell.sell_date, textbook.title, textbook.author, inventory.price FROM inventory INNER JOIN textbook ON inventory.isbn=textbook.isbn LEFT JOIN sell ON inventory.inventory_id=sell.inventory_id WHERE inventory.user_id=? AND inventory.isin_inventory_code=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -85,10 +84,9 @@ public class MyPageDAO {
 					int inventoryID = rs.getInt("inventory_id");
 					Date sellDate = rs.getDate("sell_date");
 					String title = rs.getString("title");
-					String categoryName = rs.getString("category_name");
 					String author = rs.getString("author");
 					int price = rs.getInt("price");
-					InventoryBean bean = new InventoryBean(inventoryID, sellDate, title, categoryName, author, price);
+					InventoryBean bean = new InventoryBean(inventoryID, sellDate, title, author, price);
 					list.add(bean);
 				}
 				// 商品一覧をListとして返す
@@ -127,6 +125,27 @@ public class MyPageDAO {
 				e.printStackTrace();
 				throw new DAOException("レコードの操作に失敗しました。");
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DAOException("レコードの操作に失敗しました。");
+		}
+	}
+
+	public int updateUser(int userID, String address, String tel, String password) throws DAOException {
+		// SQL文の作成
+		String sql = "UPDATE user_table SET address=?, tel=?, password=? WHERE user_id=?";
+
+		try (// データベースへの接続
+				Connection con = DriverManager.getConnection(url, user, pass);
+				// PreparedStatementオブジェクトの取得
+				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setString(1, address);
+			st.setString(2, tel);
+			st.setString(3, password);
+			st.setInt(4, userID);
+			// SQLの実行
+			int rows = st.executeUpdate();
+			return rows;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの操作に失敗しました。");

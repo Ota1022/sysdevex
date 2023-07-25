@@ -16,7 +16,6 @@
 <c:forEach items="${items}" var="item">
 	購入日：${item.sellDate}<br>
 	タイトル：${item.title}<br>
-	分類：${item.categoryName}<br>
 	著者名：${item.author}<br>
 	買値：${item.price}<br>
 	<hr>
