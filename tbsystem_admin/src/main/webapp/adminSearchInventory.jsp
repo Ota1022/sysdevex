@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="/adminHeader.jsp" />
 	<h1>教科書売買システム</h1>
 	<form action="/tbsystem_admin/AdminSearchInventoryServlet" method="get">
 		<select name="pull">
