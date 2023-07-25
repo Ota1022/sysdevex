@@ -39,4 +39,7 @@
 <footer>
 <small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
+<footer>
+<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+</footer>
 </html>
