@@ -22,15 +22,15 @@
 <div style="text-align: center">
 <h1>マイページ</h1>
 
-<form action="/tbsystem_user/MyPageServlet" method="post">
+<form action="/tbsystem_user/MyPageServlet2" method="post">
 <input type="submit" value="購入した商品" class="example">
 <input type="hidden" name="action" value="purchaseHistory"></form>
 <br><br>
-<form action="/tbsystem_user/MyPageServlet" method="post">
+<form action="/tbsystem_user/MyPageServlet2" method="post">
 <input type="submit" value="出品した商品" class="example">
 <input type="hidden" name="action" value="displayHistory"></form>
 <br><br>
-<form action="/tbsystem_user/MyPageServlet" method="post">
+<form action="/tbsystem_user/MyPageServlet2" method="post">
 <input type="submit" value="会員情報照会" class="example">
 <input type="hidden" name="action" value="userInfo">
 </form>
