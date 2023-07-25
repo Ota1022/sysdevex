@@ -36,9 +36,10 @@ public class AdminSearchUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
-		if (action == null || action.length() == 0) {
+
+		if (action == null || action.length() == 0 || action.equals("SearchUser")) {
 			// showまたはパラメータなしの場合はカートページを表示
 			try {
 				AdminSearchUserDAO dao = new AdminSearchUserDAO();
@@ -60,54 +61,119 @@ public class AdminSearchUserServlet extends HttpServlet {
 				String category = request.getParameter("category");
 
 				String text = request.getParameter("text");
-				//System.out.println(category);
-				//System.out.println(text);
 				AdminSearchUserDAO dao = new AdminSearchUserDAO();
 				List<UserBean> list = dao.findByUser(category, text);
-				//System.out.println("wwwwww");
 				request.setAttribute("user", list);
 
 				gotoPage(request, response, "/adminSearchUser.jsp");
 			} catch (DAOException e) {
 				// TODO 自動生成された catch ブロック
-				System.out.print("/");
 				e.printStackTrace();
 			}
 			//gotoPage(request, response, "/adminUpdateUser.jsp");
 
 		} else if (action.equals("updateUser")) {
 
-			gotoPage(request, response, "/adminUpdateUser.jsp");
+			try {
+
+				int user_id = Integer.parseInt(request.getParameter("user_id"));
+				//String name = request.getParameter("name");
+				//String address = request.getParameter("address");
+				//String tel = request.getParameter("tel");
+				//String email = request.getParameter("email");
+
+				AdminSearchUserDAO dao = new AdminSearchUserDAO();
+				UserBean bean = dao.findByPrimaryKey(user_id);
+				request.setAttribute("user", bean);
+
+				gotoPage(request, response, "/adminUpdateUser.jsp");
+
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 
 		} else if (action.equals("deleteUserConfirm")) {
 
-			gotoPage(request, response, "/adminDeleteUserConfirm.jsp");
+			int user_id = Integer.parseInt(request.getParameter("user_id"));
+			request.setAttribute("user_id", user_id);
+			try {
+
+				AdminSearchUserDAO dao = new AdminSearchUserDAO();
+				UserBean bean = dao.findByPrimaryKey(user_id);
+				request.setAttribute("user", bean);
+
+				gotoPage(request, response, "/adminDeleteUserConfirm.jsp");
+
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 
 		} else if (action.equals("userConfirm")) {
 
-			System.out.print("aaa");
+			String user_id = request.getParameter("user_id");
+			String name = request.getParameter("name");
+			String address = request.getParameter("address");
+			String tel1 = request.getParameter("tel1");
+			String tel2 = request.getParameter("tel2");
+			String tel3 = request.getParameter("tel3");
+			String tel = tel1 + "-" + tel2 + "-" + tel3;
+			String email = request.getParameter("email");
+
+			//System.out.print(email);
+
+			request.setAttribute("user_id", user_id);
+			request.setAttribute("name", name);
+			request.setAttribute("address", address);
+			request.setAttribute("tel", tel);
+			request.setAttribute("email", email);
+
 			gotoPage(request, response, "/adminUpdateUserConfirm.jsp");
-
-		} else if (action.equals("adminSearchUser")) {
-
-			System.out.print("ase");
-			gotoPage(request, response, "/adminSearchUser.jsp");
 
 		} else if (action.equals("updateUserComplete")) {
 
-			gotoPage(request, response, "/adminUpdateUserComplete.jsp");
+			try {
+				int user_id = Integer.parseInt(request.getParameter("user_id"));
+				String name = request.getParameter("name");
+				String address = request.getParameter("address");
+				String tel = request.getParameter("tel");
+				String email = request.getParameter("email");
+
+				System.out.print(user_id);
+
+				AdminSearchUserDAO dao = new AdminSearchUserDAO();
+				dao.updateUser(user_id, name, address, tel, email);
+
+				//request.setAttribute("name", name);
+
+				gotoPage(request, response, "/adminUpdateUserComplete.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			//gotoPage(request, response, "/adminUpdateUserComplete.jsp");
 
 		} else if (action.equals("UpdateUser")) {
 
 			gotoPage(request, response, "/adminUpdateUser.jsp");
 
 		} else if (action.equals("deleteUserComplete")) {
-			;
-			gotoPage(request, response, "/adminDeleteUserComplete.jsp");
 
-		} else if (action.equals("searchUser")) {
+			try {
 
-			gotoPage(request, response, "/adminSearchUser.jsp");
+				int user_id = Integer.parseInt(request.getParameter("user_id"));
+
+				AdminSearchUserDAO dao = new AdminSearchUserDAO();
+				dao.deleteUser(user_id);
+				//request.setAttribute("user", bean);
+
+				gotoPage(request, response, "/adminDeleteUserComplete.jsp");
+
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 
 		}
 
