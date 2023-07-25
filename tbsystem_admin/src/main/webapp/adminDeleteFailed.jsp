@@ -9,6 +9,7 @@
 <title>教科書情報の削除確認</title>
 </head>
 <body>
+	<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">この教科書は出品されているため、削除することができません</font><br> <font
 			size="3">教科書情報</font><br> ISBN：${isbn} <br> タイトル：${title} <br>
@@ -24,6 +25,8 @@
 </body>
 
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

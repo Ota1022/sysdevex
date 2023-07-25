@@ -19,27 +19,26 @@
 				<button class="nav__toggle" aria-expanded="false" type="button">
 					menu</button>
 				<ul class="nav__wrapper">
-					<li class="nav__item"><a href="/tbsystem_admin/top.jsp"><img
+					<li class="nav__item"><a href="/tbsystem_admin/adminTop.jsp"><img
 							src="img/suniv_banner.png" alt="Suniv Banner" class="nav-logo">
 					</a></li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/TopServlet?action=searchInventory"><img
-							src="img/inventory_search.png" alt="searchInventory" class="nav-logo"></a>
-					</li>
+						href="/tbsystem_admin/adminSearchInventory.jsp"><img
+							src="img/inventory_search.png" alt="searchInventory"
+							class="nav-logo"></a></li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/TopServlet?action=searchUser"><img
+						href="/tbsystem_admin/adminSearchUser.jsp"><img
 							src="img/member_search.png" alt="searchUser" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/TopServlet?action=registTextbook"><img
+						href="/tbsystem_admin/adminRegistTextbook.jsp"><img
 							src="img/tb_regist.png" alt="registTextbook" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/TopServlet?action=searchTextbook"><img
+						href="/tbsystem_admin/adminSearchTextbook.jsp"><img
 							src="img/tb_search.png" alt="searchTextbook" class="nav-logo"></a></li>
 					</li>
-					<li class="nav__item"><a
-						href="/tbsystem_admin/TopServlet?action=login"><img
+					<li class="nav__item"><a href="/tbsystem_admin/adminLogin.jsp"><img
 							src="img/logout_admin.png" alt="Logout" class="nav-logo"></a></li>
 			</nav>
 		</div>

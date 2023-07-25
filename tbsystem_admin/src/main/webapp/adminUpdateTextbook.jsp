@@ -10,7 +10,7 @@
 <title>教科書情報の更新</title>
 </head>
 <body>
-
+	<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">教科書情報の更新</font><br>
 	</div>
@@ -52,12 +52,11 @@
 		<input type="hidden" name="action" value="adminSearchTextbook">
 		<input type="submit" value="戻る">
 	</form>
-
-
-
 </body>
 
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>
