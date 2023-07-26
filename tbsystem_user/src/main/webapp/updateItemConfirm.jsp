@@ -35,7 +35,7 @@
 <form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 <p>タイトル：${item.title}</p>
 <p>著者名：${item.author}</p>
-<p>状態：${item.stateCode}</p>
+<p>状態：${item.stateName}</p>
 <input type="hidden" name="state_code" value="${item.stateCode}">
 <p>値段：${item.price}円</p>
 <input type="hidden" name="price" value="${item.price}">

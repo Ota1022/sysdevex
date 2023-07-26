@@ -44,10 +44,13 @@
 						</form>
 					</c:if> <c:if test="${user.userID eq inventory.userIDSeller }">
 						<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-							<input type="hidden" name="action" value="updateItem"> <input
-								type="hidden" name="inventory_id"
-								value="${inventory.inventoryID }"> <input type="submit"
-								value="更新">
+							<input type="hidden" name="action" value="updateItem">
+							<input type="hidden" name="inventory_id" value="${inventory.inventoryID }">
+							<input type="hidden" name="title" value="${inventory.title }">
+							<input type="hidden" name="author" value="${inventory.author }">
+							<input type="hidden" name="price" value="${inventory.price }">
+							<input type="hidden" name="note" value="${inventory.note }">
+							<input type="submit" value="更新">
 						</form>
 					</c:if></td>
 				<td><form action="/tbsystem_user/PurchaseServlet" method="post">

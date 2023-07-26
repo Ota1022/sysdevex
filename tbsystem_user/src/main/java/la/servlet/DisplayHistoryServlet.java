@@ -47,13 +47,15 @@ public class DisplayHistoryServlet extends HttpServlet {
 				request.setAttribute("note", note);
 				gotoPage(request, response, "/updateItem.jsp");
 			} else if (action.equals("updateItemConfirm")) {
+				MyPageDAO dao = new MyPageDAO();
 				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
 				String title = request.getParameter("title");
 				String author = request.getParameter("author");
 				int stateCode = Integer.parseInt(request.getParameter("state_code"));
+				String stateName = dao.searchStateName(stateCode);
 				int price = Integer.parseInt(request.getParameter("price"));
 				String note = request.getParameter("note");
-				InventoryBean item = new InventoryBean(inventoryID, title, author, stateCode, price, note);
+				InventoryBean item = new InventoryBean(inventoryID, title, author, stateCode, stateName, price, note);
 				request.setAttribute("item", item);
 				gotoPage(request, response, "/updateItemConfirm.jsp");
 			} else if (action.equals("updateItemComplete")) {

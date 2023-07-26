@@ -199,7 +199,7 @@ public class PurchaseDAO {
 			st.setInt(2, inventoryID);
 			st.setDate(3, new java.sql.Date(sellDate.getTime()));
 
-			int rows = st.executeUpdate();
+			//int rows = st.executeUpdate();
 			return receiptID;
 
 		} catch (SQLException e) {

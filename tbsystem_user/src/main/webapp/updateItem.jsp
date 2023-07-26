@@ -51,7 +51,7 @@
 </p>
 <p>値段：<input type="text" name="price" value="${price}" required>円</p>
 <p>コメント：
-<textarea name="note" rows="5" cols="33" value="${note}"></textarea>
+<textarea name="note" rows="5" cols="33">${note}</textarea>
 </p>
 </div>
 	

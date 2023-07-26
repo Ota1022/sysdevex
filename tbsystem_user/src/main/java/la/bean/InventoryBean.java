@@ -78,11 +78,13 @@ public class InventoryBean implements Serializable {
 		this.price = price;
 	}
 
-	public InventoryBean(int inventoryID, String title, String author, int stateCode, int price, String note) {
+	public InventoryBean(int inventoryID, String title, String author, int stateCode, String stateName, int price,
+			String note) {
 		this.inventoryID = inventoryID;
 		this.title = title;
 		this.author = author;
 		this.stateCode = stateCode;
+		this.stateName = stateName;
 		this.price = price;
 		this.note = note;
 	}

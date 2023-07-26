@@ -214,20 +214,20 @@ public class MyPageDAO {
 		}
 	}
 
-	public int count() throws DAOException {
+	public String searchStateName(int stateCode) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT count(*) FROM category";
+		String sql = "SELECT * FROM state WHERE state_code = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
+			st.setInt(1, stateCode);
 			// SQLの実行
 			ResultSet rs = st.executeQuery();
-			// 結果の取得および表示
 			rs.next();
-			int num = rs.getInt(1);
-			return num;
+			String stateName = rs.getString("state_name");
+			return stateName;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DAOException("レコードの操作に失敗しました。");
