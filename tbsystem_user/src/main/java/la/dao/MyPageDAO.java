@@ -66,7 +66,7 @@ public class MyPageDAO {
 
 	public List<InventoryBean> findByIsinInventory(int userID, int isinInventoryCode) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT inventory.inventory_id, inventory.isin_inventory_code, sell.sell_date, textbook.title, textbook.author, inventory.price FROM inventory INNER JOIN textbook ON inventory.isbn=textbook.isbn LEFT JOIN sell ON inventory.inventory_id=sell.inventory_id WHERE inventory.user_id=? AND inventory.isin_inventory_code=?";
+		String sql = "SELECT inventory.inventory_id, sell.sell_date, textbook.title, textbook.author, inventory.state_code, inventory.price, inventory.note FROM inventory INNER JOIN textbook ON inventory.isbn=textbook.isbn LEFT JOIN sell ON inventory.inventory_id=sell.inventory_id WHERE inventory.user_id=? AND inventory.isin_inventory_code=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -85,8 +85,11 @@ public class MyPageDAO {
 					Date sellDate = rs.getDate("sell_date");
 					String title = rs.getString("title");
 					String author = rs.getString("author");
+					int stateCode = rs.getInt("state_code");
 					int price = rs.getInt("price");
-					InventoryBean bean = new InventoryBean(inventoryID, sellDate, title, author, price);
+					String note = rs.getString("note");
+					InventoryBean bean = new InventoryBean(inventoryID, isinInventoryCode, sellDate, title, author,
+							stateCode, price, note);
 					list.add(bean);
 				}
 				// 商品一覧をListとして返す
@@ -171,16 +174,18 @@ public class MyPageDAO {
 		}
 	}
 
-	public int addItem(String cName) throws DAOException {
+	public int updateItem(int inventoryID, int stateCode, int price, String note) throws DAOException {
 		// SQL文の作成
-		String sql = "INSERT INTO category(name) VALUES(?)";
+		String sql = "UPDATE inventory SET state_code=?, price=?, note=? WHERE inventory_id=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
 				// PreparedStatementオブジェクトの取得
 				PreparedStatement st = con.prepareStatement(sql);) {
-			// 商品名と値段の指定
-			st.setString(1, cName);
+			st.setInt(1, stateCode);
+			st.setInt(2, price);
+			st.setString(3, note);
+			st.setInt(4, inventoryID);
 			// SQLの実行
 			int rows = st.executeUpdate();
 			return rows;
@@ -192,7 +197,7 @@ public class MyPageDAO {
 
 	public int deleteByPrimaryKey(int key) throws DAOException {
 		// SQL文の作成
-		String sql = "DELETE FROM category WHERE code = ?";
+		String sql = "DELETE FROM inventory WHERE inventory_id = ?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);

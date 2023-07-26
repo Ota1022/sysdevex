@@ -6,10 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>出品教科書検索</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-
-
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 
 	<h1>出品する教科書の情報を入力してください</h1>
 

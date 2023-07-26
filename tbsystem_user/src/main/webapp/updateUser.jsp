@@ -8,8 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>会員情報の更新</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 	<div style="text-align: center">
 		<font size="7">会員情報の更新</font><br>
 	</div>
@@ -40,7 +45,7 @@
 		<input type="hidden" name="action" value="userInfo"> <input
 			type="submit" value="戻る"></p>
 	</form>
-
+</div>
 </body>
 
 <footer>

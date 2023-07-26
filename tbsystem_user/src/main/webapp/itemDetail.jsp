@@ -6,10 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>商品詳細</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-
-
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 
 	<h1>商品情報</h1>
 

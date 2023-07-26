@@ -22,17 +22,21 @@
 <head>
 <meta charset="UTF-8">
 <title>出品商品更新</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 <div style="text-align: center">
 <h1>以下の情報で更新を確定しますか？</h1>
 <h2>商品情報</h2>
 <form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 <p>タイトル：${item.title}</p>
-<input type="hidden" name="title" value="${item.title}">
 <p>著者名：${item.author}</p>
-<p>状態：${item.stateName}</p>
-<input type="hidden" name="state_name" value="${item.stateName}">
+<p>状態：${item.stateCode}</p>
+<input type="hidden" name="state_code" value="${item.stateCode}">
 <p>値段：${item.price}円</p>
 <input type="hidden" name="price" value="${item.price}">
 <p>コメント：${item.note}</p>
@@ -40,7 +44,6 @@
 	
 	<div class="right">
 	<p>
-	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="hidden" name="inventory_id" value="${item.inventoryID}">
 	<input type="submit" value="はい" class="example2">
 	<input type="hidden" name="action" value="updateItemComplete">
@@ -53,6 +56,7 @@
 	</p>
 	</div>
 
+</div>
 </div>
 
 </body>

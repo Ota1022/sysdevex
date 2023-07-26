@@ -7,8 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>退会確認</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
+
 	<div style="text-align: center">
 		<font size="7">本当に退会しますか</font><br>
 	</div>
@@ -23,7 +29,7 @@
 		<input type="submit" value="いいえ">
 		</p>
 	</form>
-	
+</div>	
 </body>
 
 <footer>

@@ -7,12 +7,19 @@
 <head>
 <meta charset="UTF-8">
 <title>退会完了</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
+
 	<div style="text-align: center">
 		<font size="7">退会が完了しました</font><br>
 		<font size="7">ご利用ありがとうございました</font>
 	</div>
+</div>
 </body>
 
 <footer>

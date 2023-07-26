@@ -8,8 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>会員情報</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 	<div style="text-align: center">
 		<font size="7">以下の情報で登録されています</font><br>
 	</div>
@@ -28,6 +33,7 @@
 		<input type="submit" value="退会">
 		</p>
 	</form>
+	</div>
 
 </body>
 
