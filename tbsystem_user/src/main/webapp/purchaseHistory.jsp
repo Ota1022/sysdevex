@@ -30,6 +30,8 @@
 </div>
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

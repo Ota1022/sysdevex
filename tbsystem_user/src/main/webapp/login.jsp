@@ -50,13 +50,17 @@
 		<input type="hidden" value="login" name="action">
 	</form>
 
+	<table>
 	<form action="/tbsystem_user/LoginServlet" method="post">
 		<input type="submit" value="新規会員登録"> <input type="hidden"
 			value="registUserForm" name="action">
 	</form>
+	</table>
 
 </body>
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

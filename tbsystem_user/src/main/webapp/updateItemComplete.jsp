@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +25,8 @@
 </div>
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

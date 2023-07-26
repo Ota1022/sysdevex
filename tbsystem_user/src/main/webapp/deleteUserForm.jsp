@@ -22,21 +22,29 @@
 
 	<p>${message}</p>
 	<p>パスワード：
-	<form action="/tbsystem_user/MyPageServlet" method="Post">
+	<form action="/tbsystem_user/MyPageServlet" method="Post"
+		id="delete_user">
 		<input type="hidden" name="action" value="deleteUserConfirm">
-		<input type="text" name="password"></p>
-		<p>
-		<input type="submit"value="確認">
+		<input type="text" name="password">
 	</form>
-	<form action="/tbsystem_user/MyPageServlet" method="Post">
-		<input type="hidden" name="action" value="userInfo">
-		<input type="submit" value="戻る">
-		</p>
-	</form>
-</div>
+	</p>
+	<p>
+	<table style="margin: auto">
+		<td><input type="submit" value="確認" form="delete_user"></td>
+		<td>
+			<form action="/tbsystem_user/MyPageServlet" method="Post">
+				<input type="hidden" name="action" value="userInfo"> <input
+					type="submit" value="戻る">
+				</p>
+			</form>
+		</td>
+	</table>
+
 </body>
 
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

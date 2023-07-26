@@ -14,25 +14,25 @@
 <head>
 <meta charset="UTF-8">
 <title>出品履歴</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="styles/reset.min.css" />
-<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-<jsp:include page="/header.jsp" />
-<div class="main-content">
-
+<%@ include file="/header.jsp"%>
 <div style="text-align: center">
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品中</a>|
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">売却済み</a>|
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品停止</a>|
-<h1>出品した商品(出品停止)</h1>
+<h1>出品した商品(出品中)</h1>
 
-	<!--<c:forEach items="${items}" var="item">-->
+<!--<c:forEach items="${items}" var="item">-->
+	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	タイトル：${item.title}<br>
-	分類：${item.category}<br>
+	<input type="hidden" name="title" value="${item.title}">
+	</form>
+	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	著者名：${item.author}<br>
+	<input type="hidden" name="author" value="${item.author}">
 	値段：${item.price}<br>
+	</form>
 	
 	<table style="margin: auto">
 	<td>
@@ -50,12 +50,13 @@
 	</table>
 	
 	<hr>
-
 <!--</c:forEach>-->
 </div>
-</div>
+
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>
