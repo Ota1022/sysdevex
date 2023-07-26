@@ -10,10 +10,8 @@
 </head>
 <body>
 	<jsp:include page="/adminHeader.jsp" />
-	<div class="main-content">
-		<div style="text-align: center">
-			<font size="7">教科書情報が更新されました</font>
-		</div>
+	<div style="text-align: center">
+		<font size="7">教科書情報が更新されました</font>
 	</div>
 </body>
 

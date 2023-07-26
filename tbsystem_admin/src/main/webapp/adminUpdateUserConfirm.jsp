@@ -9,33 +9,38 @@
 <title>管理者ページ</title>
 </head>
 <body>
-	<jsp:include page="/adminHeader.jsp" />
-	<div class="main-content">
-		<div style="text-align: center">
-			<font size="7">以下の会員情報で更新しますか</font><br> <font size="3">会員情報</font><br>
-		</div>
-		<p>ID:${user_id}</p>
-		<p>氏名：${name}</p>
-		<p>住所：${address}</p>
-		<p>電話番号：${tel}</p>
-		<p>大学メールアドレス：${email}</p>
+	<div style="text-align: center">
+		<font size="7">以下の会員情報で更新しますか</font><br> <font size="3">会員情報</font><br>
 	</div>
+	ID:${user_id}
+	<br>氏名：${name}
+	<br> 住所：${address}
+	<br> 電話番号：${tel}
+	<br>大学メールアドレス：${email}
+
 	<form action="/tbsystem_admin/AdminSearchUserServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserComplete">
-		<input type="hidden" name="user_id" value=${user_id}> <input
-			type="hidden" name="name" value=${name}> <input type="hidden"
-			name="address" value=${address}> <input type="hidden"
-			name="tel" value=${tel}> <input type="hidden" name="email"
-			value=${email}> <input type="submit" value="はい">
+		
+		<input type="hidden" name="user_id" value=${user_id}>
+		<input type="hidden" name="name" value=${name}>
+		<input type="hidden" name="address" value=${address}>
+		<input type="hidden" name="tel" value=${tel}>
+		<input type="hidden" name="email" value=${email}>
+		
+		
+		
+		
+		
+		<input type="submit" value="はい">
 	</form>
 	<form action="/tbsystem_admin/AdminSearchUserServlet" method="Post">
 		<input type="hidden" name="action" value="UpdateUser"> <input
 			type="submit" value="いいえ">
 	</form>
+
 </body>
+
 <footer>
-	<div style="text-align: center">
-		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
-	</div>
+	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
 </html>

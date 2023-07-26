@@ -8,6 +8,7 @@
 <title>管理者ページ</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 
 	<h1>教科書の検索</h1>
 
@@ -43,8 +44,8 @@
 				<td>${textbook.author}</td>
 				<td>
 					<form action="/tbsystem_admin/AdminSearchTextbookServlet" method="post">
-						<input type="hidden" name="action" value="updateUser"> <input
-							type="hidden" name="user_id" value=${user.userID}> <input
+						<input type="hidden" name="action" value="updateTextbook"> <input
+							type="hidden" name="isbn" value=${textbook.isbn}> <input
 							type="submit" value="更新">
 					</form>
 				</td>

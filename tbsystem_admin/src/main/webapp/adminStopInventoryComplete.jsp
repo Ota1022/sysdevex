@@ -7,11 +7,8 @@
 <title>管理者トップ</title>
 </head>
 <body>
-	<jsp:include page="/adminHeader.jsp" />
-	<div class="main-content">
-		<div style="text-align: center">
-			<h1>在庫を出品停止しました</h1>
-		</div>
+	<div style="text-align: center">
+		<h1>在庫を出品停止しました</h1>
 	</div>
 </body>
 <footer>
