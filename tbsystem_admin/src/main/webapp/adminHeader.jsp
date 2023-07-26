@@ -27,7 +27,7 @@
 							src="img/inventory_search.png" alt="searchInventory"
 							class="nav-logo"></a></li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/adminSearchUser.jsp"><img
+						href="/tbsystem_admin/AdminSearchUserServlet"><img
 							src="img/member_search.png" alt="searchUser" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a

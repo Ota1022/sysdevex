@@ -41,6 +41,8 @@ body {
 	background-color: #D0D0D0;
 	min-height: 100vh;
 	/* This makes sure your body takes up at least the full height of the viewport */
+	/*	display: flex;*/
+	/*	flex-direction: column;*/
 	margin: 0;
 	padding: 0;
 }
@@ -323,7 +325,7 @@ body {
 	/* This sets the background color to white */
 	padding: 1em;
 	/* This adds some space around your content */
-	min-height: 850px;
+	min-height: 560px;
 }
 
 table {
@@ -333,5 +335,18 @@ table {
 table,
 th,
 td {
-	border: 1px solid black;
+	border: 0;
 }
+
+footer {
+    margin: 0 auto; /* マージンをリセットし、自動マージンを設定 */
+    padding: 0;
+    width: 100%;
+    color: #000;
+    bottom: 0;
+    left: 50%;
+    position: fixed;
+    transform: translateX(-50%);
+    /* その他のプロパティ */
+}
+
