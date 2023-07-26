@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,47 +11,66 @@
 
 
 
-<div style="text-align: center">
-	<h2>以下の情報で購入を確定しますか</h2>
-</div>
+	<div style="text-align: center">
+		<h2>以下の情報で購入を確定しますか</h2>
+	</div>
 
-<h2>商品情報</h2>
-<table>
-	<tr><td><div style="text-align: right">教科書名：</div></td><td>${inventory.title }</td></tr>
-	<tr><td><div style="text-align: right">著者名：</div></td><td>${inventory.author }</td></tr>
-	<tr><td><div style="text-align: right">値段：</div></td><td>${inventory.price }円</td></tr>
-</table>
+	<h2>商品情報</h2>
+	<table>
+		<tr>
+			<td><div style="text-align: right">教科書名：</div></td>
+			<td>${inventory.title }</td>
+		</tr>
+		<tr>
+			<td><div style="text-align: right">著者名：</div></td>
+			<td>${inventory.author }</td>
+		</tr>
+		<tr>
+			<td><div style="text-align: right">値段：</div></td>
+			<td>${inventory.price }円</td>
+		</tr>
+	</table>
 
-<h2>購入者情報</h2>
-<table>
-	<tr><td><div style="text-align: right">氏名：</div></td><td>${user.name }</td></tr>
-	<tr><td><div style="text-align: right">電話番号：</div></td><td>${user.tel }</td></tr>
-	<tr><td><div style="text-align: right">住所：</div></td><td>${user.address }円</td></tr>
-	<tr><td><div style="text-align: right">大学メールアドレス：</div></td><td>${user.tel }円</td></tr>
-</table>
+	<h2>購入者情報</h2>
+	<table>
+		<tr>
+			<td><div style="text-align: right">氏名：</div></td>
+			<td>${user.name }</td>
+		</tr>
+		<tr>
+			<td><div style="text-align: right">電話番号：</div></td>
+			<td>${user.tel }</td>
+		</tr>
+		<tr>
+			<td><div style="text-align: right">住所：</div></td>
+			<td>${user.address }</td>
+		</tr>
+		<tr>
+			<td><div style="text-align: right">大学メールアドレス：</div></td>
+			<td>${user.tel }円</td>
+		</tr>
+	</table>
 
-<br>
+	<br>
 
-<table style="margin:auto">
-	<tr>
-	<td>
-	<form action="/tbsystem_user/PurchaseServlet" method="post">
-		<input type="hidden" name="action" value="purchaseComplete">
-		<input type="hidden" name="inventory_id" value="${inventory.inventoryID }">
-		<input type="submit" value="はい">
-	</form>
-	</td>
-	<td>
-	<form action="/tbsystem_user/PurchaseServlet" method="post">
-		<input type="hidden" name="action" value="returnItemDetail">
-		<input type="submit" value="いいえ">
-	</form>
-	</td>
-	</tr>
-</table>
+	<table style="margin: auto">
+		<tr>
+			<td>
+				<form action="/tbsystem_user/PurchaseServlet" method="post">
+					<input type="hidden" name="action" value="purchaseComplete">
+					<input type="hidden" name="inventory_id"
+						value="${inventory.inventoryID }"> <input type="submit"
+						value="はい">
+				</form>
+			</td>
+			<td>
+				<button type="button" onclick="history.back()">いいえ</button>
+			</td>
+		</tr>
+	</table>
 
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
 </html>

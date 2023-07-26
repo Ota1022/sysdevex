@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +11,14 @@
 
 
 
-<div style="text-align: center">
-	<h1>ご注文ありがとうございました<br>注文番号：${receiptID }</h1>
+	<div style="text-align: center">
+		<h1>
+			ご注文ありがとうございました<br>注文番号：${receiptID }
+		</h1>
 
-</div>
+	</div>
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
 </html>

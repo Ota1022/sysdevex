@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		try {
 			String action = request.getParameter("action");
 
@@ -60,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("user", user);
 
-					gotoPage(request, response, "/top.jsp");
+					gotoPage(request, response, "/PurchaseServlet?action=");
 				}
 			} else if (action.equals("logout")) {
 				//ログアウト
@@ -68,6 +69,7 @@ public class LoginServlet extends HttpServlet {
 				if (session != null) {
 					session.invalidate();
 				}
+				request.setAttribute("message", "ログアウトしました。");
 				gotoPage(request, response, "/login.jsp");
 			} else if (action.equals("registUserForm")) {
 				//ユーザ登録フォームへ遷移
@@ -77,7 +79,7 @@ public class LoginServlet extends HttpServlet {
 				String password_confirm = request.getParameter("password_confirm");
 
 				//パスワードチェック
-				if (password.equals("password_confirm")) {
+				if (!(password.equals(password_confirm))) {
 					request.setAttribute("message", "パスワードが一致していません");
 					gotoPage(request, response, "/registUserForm.jsp");
 				}
@@ -93,7 +95,6 @@ public class LoginServlet extends HttpServlet {
 				List<String> domainList = makeDomainList();
 				//メアドドメインチェック
 				boolean is_in_domainList = false;
-				System.out.println(getMailDomain(email));
 				for (String domain : domainList) {
 					if (getMailDomain(email).equals(domain)) {
 						is_in_domainList = true;
