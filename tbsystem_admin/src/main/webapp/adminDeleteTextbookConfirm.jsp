@@ -9,21 +9,21 @@
 <title>教科書情報の削除確認</title>
 </head>
 <body>
-	<div class="main-content">
-		<div style="text-align: center">
-			<font size="7">以下の教科書情報を本当に削除しますか</font><br> <font size="3">教科書情報</font><br>
+	<div style="text-align: center">
+		<font size="7">以下の教科書情報を本当に削除しますか</font><br> <font size="3">教科書情報</font><br>
 
-			ISBN：${isbn} <br> タイトル：${title} <br> 分類：${category_name} <br>
-			著者：${author}
+			ISBN：${textbook.isbn} <br> タイトル：${textbook.title} <br> 分類：${textbook.categoryName} <br>
+			著者：${textbook.author}
 
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 				method="Post">
 				<input type="hidden" name="action" value="deleteTextbookComplete">
+				<input type="hidden" name="isbn" value="${textbook.isbn}">	
 				<input type="submit" value="はい">
 			</form>
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 				method="Post">
-				<input type="hidden" name="action" value="returnSearchTextbook">
+				<input type="hidden" name="action" value="returnSearchTextbook2">
 				<input type="submit" value="いいえ">
 			</form>
 		</div>

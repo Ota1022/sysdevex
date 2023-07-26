@@ -61,7 +61,167 @@ public class AdminSearchTextbookServlet extends HttpServlet {
 
 		} else if (action.equals("returnSearchTextbook")) {
 
+			try {
+
+				String category = request.getParameter("category");
+
+				String text = request.getParameter("text");
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				List<TextbookBean> list = dao.findByTextbook(category, text);
+				request.setAttribute("textbook", list);
+
+				gotoPage(request, response, "/adminSearchTextbook.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
+		} else if (action.equals("returnSearchTextbook2")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				List<TextbookBean> list = dao.findAll();
+				request.setAttribute("textbook", list);
+				gotoPage(request, response, "/adminSearchTextbook.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+
+				e.printStackTrace();
+			}
+		} else if (action.equals("updateTextbook")) {
+
+			try {
+
+				//int user_id = Integer.parseInt(request.getParameter("user_id"));
+				String isbn = request.getParameter("isbn");
+				//String address = request.getParameter("address");
+				//String tel = request.getParameter("tel");
+				//String email = request.getParameter("email");
+				String isbn_before = request.getParameter("isbn_before");
+
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				TextbookBean bean = dao.findIsbn(isbn);
+				request.setAttribute("textbook", bean);
+				request.setAttribute("isbn_before", isbn_before);
+
+				gotoPage(request, response, "/adminUpdateTextbook.jsp");
+
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
+		} else if (action.equals("updateTextbookConfirm")) {
+
+			String isbn = request.getParameter("isbn");
+			String title = request.getParameter("title");
+			String category_code = request.getParameter("category_name");
+			String category_name = request.getParameter("category_name");
+			String isbn_before = request.getParameter("isbn_before");
+			if (category_name.equals("0")) {
+				category_name = "文学部";
+			} else if (category_name.equals("1")) {
+				category_name = "教育学部";
+			} else if (category_name.equals("2")) {
+				category_name = "法学部";
+			} else if (category_name.equals("3")) {
+				category_name = "社会学部";
+			} else if (category_name.equals("4")) {
+				category_name = "経済学部";
+			} else if (category_name.equals("5")) {
+				category_name = "理学部";
+			} else if (category_name.equals("6")) {
+				category_name = "医学部";
+			} else if (category_name.equals("7")) {
+				category_name = "歯学部";
+			} else if (category_name.equals("8")) {
+				category_name = "薬学部";
+			} else if (category_name.equals("9")) {
+				category_name = "工学部";
+			} else if (category_name.equals("10")) {
+				category_name = "農学部";
+			}
+
+			String author = request.getParameter("author");
+			//System.out.print(email);
+
+			request.setAttribute("isbn", isbn);
+			request.setAttribute("title", title);
+			request.setAttribute("category_code", category_code);
+			request.setAttribute("category_name", category_name);
+			request.setAttribute("author", author);
+			request.setAttribute("isbn_before", isbn_before);
+
+			gotoPage(request, response, "/adminUpdateTextbookConfirm.jsp");
+
+		} else if (action.equals("returnSearchTextbook")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				List<TextbookBean> list = dao.findAll();
+				request.setAttribute("textbook", list);
+				gotoPage(request, response, "/adminSearchTextbook.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+
+				e.printStackTrace();
+			}
+		} else if (action.equals("deleteTextbookConfirm")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				String isbn = request.getParameter("isbn");
+				TextbookBean bean = dao.findIsbn(isbn);
+				request.setAttribute("textbook", bean);
+				gotoPage(request, response, "/adminDeleteTextbookConfirm.jsp");
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
+		} else if (action.equals("deleteTextbookComplete")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				String isbn = request.getParameter("isbn");
+				if (dao.CheckInventory(isbn)) {
+					dao.deleteTextbook(isbn);
+					gotoPage(request, response, "/adminDeleteTextbookComplete.jsp");
+				} else {
+					TextbookBean bean = dao.findIsbn(isbn);
+					request.setAttribute("textbook", bean);
+					gotoPage(request, response, "/adminDeleteFailed.jsp");
+
+				}
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
+		} else if (action.equals("updateTextbookComplete")) {
+
+			try {
+				String isbn = request.getParameter("isbn");
+				String title = request.getParameter("title");
+				int category_code = Integer.parseInt(request.getParameter("category_code"));
+				String author = request.getParameter("author");
+				String isbn_before = request.getParameter("isbn_before");
+
+				//String category_name = request.getParameter("category_name");
+
+				//int user_id = Integer.parseInt(request.getParameter("user_id"));
+				//String name = request.getParameter("name");
+				//String address = request.getParameter("address");
+				//String tel = request.getParameter("tel");
+				//String email = request.getParameter("email");
+
+				//System.out.print(user_id);
+
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				dao.updateTextbook(isbn, title, category_code, author, isbn_before);
+
+				//request.setAttribute("name", name);
+
+				gotoPage(request, response, "/adminUpdateTextbookComplete.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
 		}
+
 	}
 
 	private void gotoPage(HttpServletRequest request,
