@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,32 +11,23 @@
 <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+	<%@ include file="/header.jsp" %>
 	<div class="main-content">
-		
 
+		<div style="text-align: center">
 
-<div style="text-align: center">
+			<h1>教科書売買システム</h1>
 
-<h1>教科書売買システム</h1>
-		<p>コンテンツ</p>
+			<select name="category_code" form="search_header">
+				<option value="">全学部系</option>
+				<c:forEach items="${categoryList}" var="category">
+					<option value="${category.categoryID }">${category.categoryName }</option>
+				</c:forEach>
+			</select>
+		</div>
 	</div>
-
-<a href="/tbsystem_user/PurchaseServlet">全表示</a>
-<c:forEach items="${categoryList }" var="category">
-	<a href="/tbsystem_user/PurchaseServlet?category_code=${category.categoryID }&action=itemList">${category.categoryName }</a>
-</c:forEach>
-
-<select name="categoryCheck" id="">
-			<option>全学部系</option>
-			<c:forEach items="${categoryList}" var="category">
-				<option value="${category.category_code }">${category.category_name }</option>
-			</c:forEach>
-</select>
-
-</div>
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
 </html>
