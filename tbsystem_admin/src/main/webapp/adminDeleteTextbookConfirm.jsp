@@ -23,7 +23,7 @@
 			</form>
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 				method="Post">
-				<input type="hidden" name="action" value="returnSearchTextbook">
+				<input type="hidden" name="action" value="returnSearchTextbook2">
 				<input type="submit" value="いいえ">
 			</form>
 		</div>

@@ -80,38 +80,38 @@ CREATE TABLE sell
 );
 
 /*category*/
-INSERT INTO category(category_code, category_name) VALUES(0, '文学部系');
-INSERT INTO category(category_code, category_name) VALUES(1, '教育学部系');
-INSERT INTO category(category_code, category_name) VALUES(2, '法学部系');
-INSERT INTO category(category_code, category_name) VALUES(3, '社会学部系');
-INSERT INTO category(category_code, category_name) VALUES(4, '経済学部系');
-INSERT INTO category(category_code, category_name) VALUES(5, '理学部系');
-INSERT INTO category(category_code, category_name) VALUES(6, '医学部系');
-INSERT INTO category(category_code, category_name) VALUES(7, '歯学部系');
-INSERT INTO category(category_code, category_name) VALUES(8, '薬学部系');
-INSERT INTO category(category_code, category_name) VALUES(9, '工学部系');
-INSERT INTO category(category_code, category_name) VALUES(10, '農学部系');
+INSERT INTO category(category_code, category_name) VALUES(0, '???w???n');
+INSERT INTO category(category_code, category_name) VALUES(1, '????w???n');
+INSERT INTO category(category_code, category_name) VALUES(2, '?@?w???n');
+INSERT INTO category(category_code, category_name) VALUES(3, '???w???n');
+INSERT INTO category(category_code, category_name) VALUES(4, '?o??w???n');
+INSERT INTO category(category_code, category_name) VALUES(5, '???w???n');
+INSERT INTO category(category_code, category_name) VALUES(6, '??w???n');
+INSERT INTO category(category_code, category_name) VALUES(7, '???w???n');
+INSERT INTO category(category_code, category_name) VALUES(8, '??w???n');
+INSERT INTO category(category_code, category_name) VALUES(9, '?H?w???n');
+INSERT INTO category(category_code, category_name) VALUES(10, '?_?w???n');
 
 /*state*/
-INSERT INTO state(state_code, state_name) VALUES(0, '新品、未使用');
-INSERT INTO state(state_code, state_name) VALUES(1, '未使用に近い');
-INSERT INTO state(state_code, state_name) VALUES(2, '目立った傷や汚れなし');
-INSERT INTO state(state_code, state_name) VALUES(3, 'やや傷や汚れあり');
-INSERT INTO state(state_code, state_name) VALUES(4, '傷や汚れあり');
-INSERT INTO state(state_code, state_name) VALUES(5, '全体的に状態が悪い');
+INSERT INTO state(state_code, state_name) VALUES(0, '?V?i?A???g?p');
+INSERT INTO state(state_code, state_name) VALUES(1, '???g?p????');
+INSERT INTO state(state_code, state_name) VALUES(2, '???????????????');
+INSERT INTO state(state_code, state_name) VALUES(3, '?????????');
+INSERT INTO state(state_code, state_name) VALUES(4, '????????');
+INSERT INTO state(state_code, state_name) VALUES(5, '?S??I?????????');
 
 /*state_inventory*/
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(0, '売り切れ');
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(1, '出品中');
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(2, '出品停止');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(0, '??????');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(1, '?o?i??');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(2, '?o?i??~');
 
 /*user table*/
 /*admin*/
-/*regist_date, delete_date, birthdayは入れてない*/
+/*regist_date, delete_date, birthday????????*/
 INSERT INTO user_table(name, email, password) VALUES('admin', 'admin@test.ac.jp', 'himitu');
 /*user*/
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', '東京都新宿区', '03-1111-1111', '2023-06-20', '1999-01-01');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', '東京都品川区', '03-1111-1111', '2023-07-19', '2000-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', '?????s?V?h??', '03-1111-1111', '2023-06-20', '1999-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', '?????s?i???', '03-1111-1111', '2023-07-19', '2000-01-01');
 
 /*textbook*/
 INSERT INTO textbook(isbn, category_code, title, author) VALUES('0000000000000', 0, 'test book 0', 'test author 0');

@@ -76,6 +76,17 @@ public class AdminSearchTextbookServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		} else if (action.equals("returnSearchTextbook2")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				List<TextbookBean> list = dao.findAll();
+				request.setAttribute("textbook", list);
+				gotoPage(request, response, "/adminSearchTextbook.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+
+				e.printStackTrace();
+			}
 		} else if (action.equals("updateTextbook")) {
 
 			try {
@@ -142,6 +153,43 @@ public class AdminSearchTextbookServlet extends HttpServlet {
 
 			gotoPage(request, response, "/adminUpdateTextbookConfirm.jsp");
 
+		} else if (action.equals("returnSearchTextbook")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				List<TextbookBean> list = dao.findAll();
+				request.setAttribute("textbook", list);
+				gotoPage(request, response, "/adminSearchTextbook.jsp");
+			} catch (DAOException e) {
+				// TODO 自動生成された catch ブロック
+
+				e.printStackTrace();
+			}
+		} else if (action.equals("deleteTextbookConfirm")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				String isbn = request.getParameter("isbn");
+				TextbookBean bean = dao.findIsbn(isbn);
+				request.setAttribute("textbook", bean);
+				gotoPage(request, response, "/adminDeleteTextbookConfirm.jsp");
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
+		} else if (action.equals("deleteTextbookComplete")) {
+			try {
+				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
+				String isbn = request.getParameter("isbn");
+				if (dao.CheckInventory(isbn)) {
+					dao.deleteTextbook(isbn);
+					gotoPage(request, response, "/adminDeleteTextbookComplete.jsp");
+				} else {
+					TextbookBean bean = dao.findIsbn(isbn);
+					request.setAttribute("textbook", bean);
+					gotoPage(request, response, "/adminDeleteFailed.jsp");
+
+				}
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
 		} else if (action.equals("updateTextbookComplete")) {
 
 			try {
