@@ -8,7 +8,7 @@
 <title>検索結果</title>
 </head>
 <body>
-
+	<%@ include file="/header.jsp"%>
 
 
 	<h1>検索結果</h1>
@@ -68,6 +68,8 @@
 
 </body>
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

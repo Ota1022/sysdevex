@@ -16,6 +16,7 @@
 <title>出品履歴</title>
 </head>
 <body>
+<%@ include file="/header.jsp"%>
 <div style="text-align: center">
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品中</a>|
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">売却済み</a>|
@@ -33,17 +34,20 @@
 	値段：${item.price}<br>
 	</form>
 	
-	<div class="right">
+	<table style="margin: auto">
+	<td>
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="submit" value="更新">
 	<input type="hidden" name="action" value="updateItem">
 	</form>
-	
+	</td>
+	<td>
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="submit" value="削除">
 	<input type="hidden" name="action" value="deleteItemConfirm">
 	</form>
-	</div>
+	</td>
+	</table>
 	
 	<hr>
 <!--</c:forEach>-->
@@ -51,6 +55,8 @@
 
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

@@ -8,7 +8,7 @@
 <title>出品教科書検索</title>
 </head>
 <body>
-
+	<%@ include file="/header.jsp"%>
 
 
 	<h1>出品する教科書を選択してください</h1>
@@ -57,6 +57,8 @@
 
 </body>
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

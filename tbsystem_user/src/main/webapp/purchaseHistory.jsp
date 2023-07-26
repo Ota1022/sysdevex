@@ -10,6 +10,8 @@
 <title>購入履歴</title>
 </head>
 <body>
+	<%@ include file="/header.jsp"%>
+	
 <div style="text-align: center">
 <h1>購入した商品</h1>
 
@@ -24,6 +26,8 @@
 
 </body>
 <footer>
-<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

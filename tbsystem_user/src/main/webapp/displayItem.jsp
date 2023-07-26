@@ -8,7 +8,7 @@
 <title>出品商品検索</title>
 </head>
 <body>
-
+	<%@ include file="/header.jsp"%>
 
 
 	<h2>商品の情報を入力してください</h2>
@@ -48,7 +48,7 @@
 			</tr>
 			<tr>
 				<td><div style="text-align: right">コメント：</div></td>
-				<td><input type="text" name="note"></td>
+				<td><textarea name="note" rows="5" cols="33" style="vertical-align:top"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -61,6 +61,8 @@
 
 </body>
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

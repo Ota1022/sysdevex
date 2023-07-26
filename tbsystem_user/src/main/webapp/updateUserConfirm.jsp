@@ -9,6 +9,7 @@
 <title>会員情報の更新確認</title>
 </head>
 <body>
+	<%@ include file="/header.jsp"%>
 	<div style="text-align: center">
 		<font size="7">以下の会員情報で更新しますか</font>
 	</div>
@@ -18,6 +19,8 @@
 		<p>住所：${user.address}</p>
 		<p>電話番号：${user.tel}</p>
 
+	<table>
+	<td>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUserComplete">
 		<p>
@@ -26,14 +29,20 @@
 		<input type="hidden" name="tel" value="${user.tel}">
 		<input type="hidden" name="password" value="${user.password}">
 	</form>
+	</td>
+	<td>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="updateUser">
 		<input type="submit" value="いいえ">
 		</p>
 	</form>
+	</td>
+	</table>
 </body>
 
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

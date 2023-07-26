@@ -13,20 +13,28 @@
 		<font size="7">本当に退会しますか</font><br>
 	</div>
 
+	<table style="margin: auto">
+	<td>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<p>
 		<input type="hidden" name="action" value="deleteUserComplete">
 		<input type="submit" value="はい">
 	</form>
+	</td>
+	<td>
 	<form action="/tbsystem_user/MyPageServlet" method="Post">
 		<input type="hidden" name="action" value="userInfo">
 		<input type="submit" value="いいえ">
 		</p>
 	</form>
+	</td>
+	</table>
 	
 </body>
 
 <footer>
-	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	<div style="text-align: center">
+		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+	</div>
 </footer>
 </html>

@@ -16,6 +16,7 @@
 <title>出品履歴</title>
 </head>
 <body>
+	<%@ include file="/header.jsp"%>
 <div style="text-align: center">
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品中</a>|
 <a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">売却済み</a>|
