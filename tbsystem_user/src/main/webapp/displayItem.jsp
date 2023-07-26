@@ -6,10 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>出品商品検索</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-
-
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 
 <h2>商品の情報を入力してください</h2>
 
@@ -61,7 +64,7 @@
 	</tr>
 </table>
 </form>
-
+</div>
 </body>
 <footer>
 <small>© 2023 アベレージャーズ All Rights Reserved.</small>

@@ -23,31 +23,42 @@
 <div class="main-content">
 
 <div style="text-align: center">
-<a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品中</a>|
-<a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">売却済み</a>|
-<a href="/shopping/DisplayHistoryServlet?action=displayHistory&code=${isinInventoryCode}">出品停止</a>|
-<h1>出品した商品(出品停止)</h1>
+<a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=1">出品中</a>|
+<a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=0">売却済み</a>|
+<a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=2">出品停止</a>|
+<h1>出品した商品(出品中)</h1>
 
-<!--<c:forEach items="${items}" var="item">-->
+<c:forEach items="${items}" var="item">
 	タイトル：${item.title}<br>
-	分類：${item.category}<br>
 	著者名：${item.author}<br>
-	値段：${item.price}<br>
+	値段：${item.price}
+	<br>
+	</form>
 	
 	<div class="right">
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="submit" value="更新">
 	<input type="hidden" name="action" value="updateItem">
+	<input type="hidden" name="inventory_id" value="${item.inventoryID}">
+	<input type="hidden" name="title" value="${item.title}">
+	<input type="hidden" name="author" value="${item.author}">
+	<input type="hidden" name="state_code" value="${item.stateCode}">
+	<input type="hidden" name="price" value="${item.price}">
+	<input type="hidden" name="note" value="${item.note}">
 	</form>
 	
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="submit" value="削除">
 	<input type="hidden" name="action" value="deleteItemConfirm">
+	<input type="hidden" name="inventory_id" value="${item.inventoryID}">
+	<input type="hidden" name="title" value="${item.title}">
+	<input type="hidden" name="author" value="${item.author}">
+	<input type="hidden" name="price" value="${item.price}">
 	</form>
 	</div>
 	
 	<hr>
-<!--</c:forEach>-->
+</c:forEach>
 </div>
 </div>
 </body>

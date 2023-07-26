@@ -7,12 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>会員情報の更新確認</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 	<div style="text-align: center">
 		<font size="7">以下の会員情報で更新しますか</font>
 	</div>
-	<form action="/tbsystem_user/MyPageServlet" method="post">
 		<p>氏名：${user.name}</p>
 		<p>大学メールアドレス：${user.email}</p>
 		<p>住所：${user.address}</p>
@@ -31,6 +35,7 @@
 		<input type="submit" value="いいえ">
 		</p>
 	</form>
+	</div>
 </body>
 
 <footer>

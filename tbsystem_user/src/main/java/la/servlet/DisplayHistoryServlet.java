@@ -1,7 +1,6 @@
 package la.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,8 +20,8 @@ import la.dao.MyPageDAO;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/MyPageServlet")
-public class MyPageServlet extends HttpServlet {
+@WebServlet("/DisplayHistoryServlet")
+public class DisplayHistoryServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -35,36 +34,52 @@ public class MyPageServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			if (action == null || action.length() == 0) {
 				gotoPage(request, response, "/myPage.jsp");
-			} else if (action.equals("purchaseHistory")) {
+			} else if (action.equals("updateItem")) {
+				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				String title = request.getParameter("title");
+				String author = request.getParameter("author");
+				int price = Integer.parseInt(request.getParameter("price"));
+				String note = request.getParameter("note");
+				request.setAttribute("inventory_id", inventoryID);
+				request.setAttribute("title", title);
+				request.setAttribute("author", author);
+				request.setAttribute("price", price);
+				request.setAttribute("note", note);
+				gotoPage(request, response, "/updateItem.jsp");
+			} else if (action.equals("updateItemConfirm")) {
+				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				String title = request.getParameter("title");
+				String author = request.getParameter("author");
+				int stateCode = Integer.parseInt(request.getParameter("state_code"));
+				int price = Integer.parseInt(request.getParameter("price"));
+				String note = request.getParameter("note");
+				InventoryBean item = new InventoryBean(inventoryID, title, author, stateCode, price, note);
+				request.setAttribute("item", item);
+				gotoPage(request, response, "/updateItemConfirm.jsp");
+			} else if (action.equals("updateItemComplete")) {
 				MyPageDAO dao = new MyPageDAO();
-				HttpSession session = request.getSession(true);
-				UserBean user = (UserBean) session.getAttribute("user");
-				int userID = user.getUserID();
-				List<InventoryBean> items = dao.findPurchaseHistory(userID);
-				request.setAttribute("items", items);
-				gotoPage(request, response, "/purchaseHistory.jsp");
-			} else if (action.equals("displayHistory")) {
+				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				int stateCode = Integer.parseInt(request.getParameter("state_code"));
+				int price = Integer.parseInt(request.getParameter("price"));
+				String note = request.getParameter("note");
+				dao.updateItem(inventoryID, stateCode, price, note);
+				gotoPage(request, response, "/updateItemComplete.jsp");
+			} else if (action.equals("deleteItemConfirm")) {
+				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				String title = request.getParameter("title");
+				String author = request.getParameter("author");
+				int price = Integer.parseInt(request.getParameter("price"));
+				request.setAttribute("inventory_id", inventoryID);
+				request.setAttribute("title", title);
+				request.setAttribute("author", author);
+				request.setAttribute("price", price);
+				gotoPage(request, response, "/deleteItemConfirm.jsp");
+			} else if (action.equals("deleteItemComplete")) {
 				MyPageDAO dao = new MyPageDAO();
-				HttpSession session = request.getSession(true);
-				UserBean user = (UserBean) session.getAttribute("user");
-				int userID = user.getUserID();
-				int isinInventoryCode = Integer.parseInt(request.getParameter("isin_inventory_code"));
-				List<InventoryBean> items = dao.findByIsinInventory(userID, isinInventoryCode);
-				request.setAttribute("items", items);
-				gotoPage(request, response, "/displayHistory.jsp");
-			} else if (action.equals("userInfo")) {
-				MyPageDAO dao = new MyPageDAO();
-				HttpSession session = request.getSession(true);
-				UserBean bean = (UserBean) session.getAttribute("user");
-				int userID = bean.getUserID();
-				UserBean user = dao.findByPrimaryKey(userID);
-				request.setAttribute("user", user);
-				gotoPage(request, response, "/userinfo.jsp");
-			} else if (action.equals("updateUser")) {
-				HttpSession session = request.getSession(true);
-				UserBean user = (UserBean) session.getAttribute("user");
-				request.setAttribute("user", user);
-				gotoPage(request, response, "/updateUser.jsp");
+				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				dao.deleteByPrimaryKey(inventoryID);
+				gotoPage(request, response, "/deleteItemComplete.jsp");
+
 			} else if (action.equals("updateUserConfirm")) {
 				//土屋君のコードを基に修正必要
 				HttpSession session = request.getSession(true);

@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
 				String password_confirm = request.getParameter("password_confirm");
 
 				//パスワードチェック
-				if (password.equals("password_confirm")) {
+				if (password.equals(password_confirm)) {
 					request.setAttribute("message", "パスワードが一致していません");
 					gotoPage(request, response, "/registUserForm.jsp");
 				}

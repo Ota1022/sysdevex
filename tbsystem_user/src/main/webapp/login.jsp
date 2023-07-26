@@ -6,8 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles/reset.min.css" />
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+<jsp:include page="/header.jsp" />
+<div class="main-content">
 
 <div style="text-align: center">
 	<h1>ログイン</h1>
@@ -45,7 +50,7 @@
 <input type="submit" value="新規会員登録">
 <input type="hidden" value="registUserForm" name="action">
 </form>
-
+</div>
 </body>
 <footer>
 <small>© 2023 アベレージャーズ All Rights Reserved.</small>
