@@ -11,71 +11,72 @@
 <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-<jsp:include page="/header.jsp" />
-<div class="main-content">
+	<jsp:include page="/header.jsp" />
+	<div class="main-content">
 
-	<div style="text-align: center">
-		<h1>新規会員登録</h1>
-	</div>
+		<div style="text-align: center">
+			<h1>新規会員登録</h1>
+		</div>
 
 
-	${message}
-	<br>
-	<form action="/tbsystem_user/LoginServlet" method="post">
-		<table style="margin: auto">
-			<tr>
-				<td><div style="text-align: right">氏名：</div></td>
-				<td><div style="text-align: center">
-						<input type="text" size="40" name="name">
-					</div></td>
-			</tr>
-			<tr>
-				<td><div style="text-align: right">大学メールアドレス：</div></td>
-				<td><div style="text-align: center">
-						<input type="text" size="40" name="email">
-					</div></td>
-			</tr>
-			<tr>
-				<td><div style="text-align: right">住所：</div></td>
-				<td><div style="text-align: center">
-						<input type="text" size="40" name="address">
-					</div></td>
-			</tr>
-			<tr>
-				<td><div style="text-align: right">電話番号：</div></td>
-				<td><div style="text-align: center">
-						<input type="text" size="6" name="tel1">-<input
-							type="text" size="6" name="tel2">-<input type="text"
-							size="6" name="tel3">
-					</div></td>
-			</tr>
-			<tr>
-				<td><div style="text-align: right">パスワード：</div></td>
-				<td><div style="text-align: center">
-						<input type="password" size="40" name="password">
-					</div></td>
-			</tr>
-			<tr>
-				<td><div style="text-align: right">パスワード(確認用)：</div></td>
-				<td><div style="text-align: center">
-						<input type="password" size="40" name="password_confirm">
-					</div></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<div style="text-align: center">
-						<input type="submit" value="決定">
-					</div>
-				</td>
-			</tr>
-		</table>
-		<input type="hidden" value="registUserConfirm" name="action">
-	</form>
-
+		${message} <br>
+		<form action="/tbsystem_user/LoginServlet" method="post">
+			<table style="margin: auto">
+				<tr>
+					<td><div style="text-align: right">氏名：</div></td>
+					<td><div style="text-align: center">
+							<input type="text" size="40" name="name">
+						</div></td>
+				</tr>
+				<tr>
+					<td><div style="text-align: right">大学メールアドレス：</div></td>
+					<td><div style="text-align: center">
+							<input type="text" size="40" name="email">
+						</div></td>
+				</tr>
+				<tr>
+					<td><div style="text-align: right">住所：</div></td>
+					<td><div style="text-align: center">
+							<input type="text" size="40" name="address">
+						</div></td>
+				</tr>
+				<tr>
+					<td><div style="text-align: right">電話番号：</div></td>
+					<td><div style="text-align: center">
+							<input type="text" size="6" name="tel1">-<input
+								type="text" size="6" name="tel2">-<input type="text"
+								size="6" name="tel3">
+						</div></td>
+				</tr>
+				<tr>
+					<td><div style="text-align: right">パスワード：</div></td>
+					<td><div style="text-align: center">
+							<input type="password" size="40" name="password">
+						</div></td>
+				</tr>
+				<tr>
+					<td><div style="text-align: right">パスワード(確認用)：</div></td>
+					<td><div style="text-align: center">
+							<input type="password" size="40" name="password_confirm">
+						</div></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div style="text-align: center">
+							<input type="submit" value="決定">
+						</div>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" value="registUserConfirm" name="action">
+		</form>
+		<footer>
+			<div style="text-align: center">
+				<small>© 2023 アベレージャーズ All Rights Reserved.</small>
+			</div>
+		</footer>
 </body>
 <footer>
-	<div style="text-align: center">
-		<small>© 2023 アベレージャーズ All Rights Reserved.</small>
-	</div>
+	<small>© 2023 アベレージャーズ All Rights Reserved.</small>
 </footer>
 </html>
