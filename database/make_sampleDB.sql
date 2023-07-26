@@ -80,48 +80,48 @@ CREATE TABLE sell
 );
 
 /*category*/
-INSERT INTO category(category_code, category_name) VALUES(0, 'æ–‡å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(1, 'æ•™è‚²å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(2, 'æ³•å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(3, 'ç¤¾ä¼šå­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(4, 'çµŒæ¸ˆå­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(5, 'ç†å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(6, 'åŒ»å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(7, 'æ­¯å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(8, 'è–¬å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(9, 'å·¥å­¦éƒ¨ç³»');
-INSERT INTO category(category_code, category_name) VALUES(10, 'è¾²å­¦éƒ¨ç³»');
+INSERT INTO category(category_code, category_name) VALUES(0, '•¶Šw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(1, '‹³ˆçŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(2, '–@Šw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(3, 'Ğ‰ïŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(4, 'ŒoÏŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(5, '—Šw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(6, 'ˆãŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(7, '•Šw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(8, '–òŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(9, 'HŠw•”Œn');
+INSERT INTO category(category_code, category_name) VALUES(10, '”_Šw•”Œn');
 
 /*state*/
-INSERT INTO state(state_code, state_name) VALUES(0, 'æ–°å“ã€æœªä½¿ç”¨');
-INSERT INTO state(state_code, state_name) VALUES(1, 'æœªä½¿ç”¨ã«è¿‘ã„');
-INSERT INTO state(state_code, state_name) VALUES(2, 'ç›®ç«‹ã£ãŸå‚·ã‚„æ±šã‚Œãªã—');
-INSERT INTO state(state_code, state_name) VALUES(3, 'ã‚„ã‚„å‚·ã‚„æ±šã‚Œã‚ã‚Š');
-INSERT INTO state(state_code, state_name) VALUES(4, 'å‚·ã‚„æ±šã‚Œã‚ã‚Š');
-INSERT INTO state(state_code, state_name) VALUES(5, 'å…¨ä½“çš„ã«çŠ¶æ…‹ãŒæ‚ªã„');
+INSERT INTO state(state_code, state_name) VALUES(0, 'V•iA–¢g—p');
+INSERT INTO state(state_code, state_name) VALUES(1, '–¢g—p‚É‹ß‚¢');
+INSERT INTO state(state_code, state_name) VALUES(2, '–Ú—§‚Á‚½‚â‰˜‚ê‚È‚µ');
+INSERT INTO state(state_code, state_name) VALUES(3, '‚â‚â‚â‰˜‚ê‚ ‚è');
+INSERT INTO state(state_code, state_name) VALUES(4, '‚â‰˜‚ê‚ ‚è');
+INSERT INTO state(state_code, state_name) VALUES(5, '‘S‘Ì“I‚Éó‘Ô‚ªˆ«‚¢');
 
 /*state_inventory*/
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(0, 'å£²ã‚Šåˆ‡ã‚Œ');
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(1, 'å‡ºå“ä¸­');
-INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(2, 'å‡ºå“åœæ­¢');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(0, '”„‚èØ‚ê');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(1, 'o•i’†');
+INSERT INTO state_inventory(isin_inventory_code, isin_inventory_name) VALUES(2, 'o•i’â~');
 
 /*user table*/
 /*admin*/
-/*regist_date, delete_date, birthdayã¯å…¥ã‚Œã¦ãªã„*/
+/*regist_date, delete_date, birthday‚Í“ü‚ê‚Ä‚È‚¢*/
 INSERT INTO user_table(name, email, password) VALUES('admin', 'admin@test.ac.jp', 'himitu');
 /*user*/
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', 'æ±äº¬éƒ½æ–°å®¿åŒº', '03-1111-1111', '2023-06-20', '1999-01-01');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', 'æ±äº¬éƒ½å“å·åŒº', '03-1111-1111', '2023-07-19', '2000-01-01');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user3', 'user3@test.ac.jp', 'himitu', 'å¤§é˜ªåºœå¤§é˜ªå¸‚', '06-2222-2222', '2023-08-01', '2001-02-02');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user4', 'user4@test.ac.jp', 'himitu', 'ç¦å²¡çœŒç¦å²¡å¸‚', '092-3333-3333', '2023-08-02', '2002-03-03');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user5', 'user5@test.ac.jp', 'himitu', 'åŒ—æµ·é“æœ­å¹Œå¸‚', '011-4444-4444', '2023-08-03', '2003-04-04');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user6', 'user6@test.ac.jp', 'himitu', 'æ„›çŸ¥çœŒåå¤å±‹å¸‚', '052-5555-5555', '2023-08-04', '2004-05-05');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user7', 'user7@test.ac.jp', 'himitu', 'ç¥å¥ˆå·çœŒæ¨ªæµœå¸‚', '045-6666-6666', '2023-08-05', '2005-06-06');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user8', 'user8@test.ac.jp', 'himitu', 'åºƒå³¶çœŒåºƒå³¶å¸‚', '082-7777-7777', '2023-08-06', '2006-07-07');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user9', 'user9@test.ac.jp', 'himitu', 'äº¬éƒ½åºœäº¬éƒ½å¸‚', '075-8888-8888', '2023-08-07', '2007-08-08');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user10', 'user10@test.ac.jp', 'himitu', 'å…µåº«çœŒç¥æˆ¸å¸‚', '078-9999-9999', '2023-08-08', '2008-09-09');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user11', 'user11@test.ac.jp', 'himitu', 'å®®åŸçœŒä»™å°å¸‚', '022-1010-1010', '2023-08-09', '2009-10-10');
-INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user12', 'user12@test.ac.jp', 'himitu', 'é™å²¡çœŒé™å²¡å¸‚', '054-1111-1111', '2023-08-10', '2010-11-11');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user1', 'user1@test.ac.jp', 'himitu', '“Œ‹“sVh‹æ', '03-1111-1111', '2023-06-20', '1999-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user2', 'user2@test.ac.jp', 'himitu', '“Œ‹“s•iì‹æ', '03-1111-1111', '2023-07-19', '2000-01-01');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user3', 'user3@test.ac.jp', 'himitu', '‘åã•{‘åãs', '06-2222-2222', '2023-08-01', '2001-02-02');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user4', 'user4@test.ac.jp', 'himitu', '•Ÿ‰ªŒ§•Ÿ‰ªs', '092-3333-3333', '2023-08-02', '2002-03-03');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user5', 'user5@test.ac.jp', 'himitu', '–kŠC“¹D–ys', '011-4444-4444', '2023-08-03', '2003-04-04');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user6', 'user6@test.ac.jp', 'himitu', 'ˆ¤’mŒ§–¼ŒÃ‰®s', '052-5555-5555', '2023-08-04', '2004-05-05');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user7', 'user7@test.ac.jp', 'himitu', '_“ŞìŒ§‰¡•ls', '045-6666-6666', '2023-08-05', '2005-06-06');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user8', 'user8@test.ac.jp', 'himitu', 'L“‡Œ§L“‡s', '082-7777-7777', '2023-08-06', '2006-07-07');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user9', 'user9@test.ac.jp', 'himitu', '‹“s•{‹“ss', '075-8888-8888', '2023-08-07', '2007-08-08');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user10', 'user10@test.ac.jp', 'himitu', '•ºŒÉŒ§_ŒËs', '078-9999-9999', '2023-08-08', '2008-09-09');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user11', 'user11@test.ac.jp', 'himitu', '‹{éŒ§å‘äs', '022-1010-1010', '2023-08-09', '2009-10-10');
+INSERT INTO user_table(name, email, password, address, tel, regist_date, birthday) VALUES('user12', 'user12@test.ac.jp', 'himitu', 'Ã‰ªŒ§Ã‰ªs', '054-1111-1111', '2023-08-10', '2010-11-11');
 
 
 /*textbook*/
