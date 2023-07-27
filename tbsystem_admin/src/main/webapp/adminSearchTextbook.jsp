@@ -44,8 +44,10 @@
 						<td>
 							<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 								method="post">
-								<input type="hidden" name="action" value="updateTextbook"> 						<input type="hidden" name="action" value="updateTextbook"> <input
-							<input type="hidden" name="isbn" value=${textbook.isbn}> 
+								<input type="hidden" name="action" value="updateTextbook">
+								<input type="hidden" name="action" value="updateTextbook">
+								<input
+									<input type="hidden" name="isbn" value=${textbook.isbn}> 
 							<input type="submit" value="更新">
 							</form>
 						</td>
