@@ -50,7 +50,7 @@
 			</tr>
 			<tr>
 				<td><div style="text-align: right">大学メールアドレス：</div></td>
-				<td>${user.tel }円</td>
+				<td>${user.email }</td>
 			</tr>
 		</table>
 

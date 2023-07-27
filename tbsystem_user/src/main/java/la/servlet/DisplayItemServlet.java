@@ -110,7 +110,9 @@ public class DisplayItemServlet extends HttpServlet {
 				dao.addInventory(isbn, user.getUserID(), stateCode, price, 1, note,
 						new Date(), new Date());
 
-				gotoPage(request, response, "/displayHistoryNotSold.jsp");
+				//request.setAttribute("isin_inventory_code", 1);
+				//request.setAttribute("action", "displayHistory");
+				gotoPage(request, response, "/MyPageServlet?action=displayHistory&isin_inventory_code=1");
 
 			}
 		} catch (DAOException e) {

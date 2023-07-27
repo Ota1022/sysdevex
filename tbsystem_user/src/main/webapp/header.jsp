@@ -44,7 +44,7 @@
 					<label class="sr-only" for="search">検索</label> <input type="hidden"
 						name="action" value="itemList"> <input type="search"
 						name="query" id="search" placeholder="教科書名" />
-					<button>検索</button>
+					<button>商品検索</button>
 				</form>
 			</div>
 		</div>

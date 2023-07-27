@@ -41,6 +41,7 @@ public class PurchaseServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		try {
 			String action = request.getParameter("action");
+			//System.out.println(action);
 
 			if (action == null || action.length() == 0 || action.equals("top")) {
 				//セッション判定

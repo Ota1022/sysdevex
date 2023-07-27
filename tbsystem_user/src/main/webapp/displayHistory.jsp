@@ -26,12 +26,12 @@
 <a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=1">出品中</a>|
 <a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=0">売却済み</a>|
 <a href="/tbsystem_user/MyPageServlet?action=displayHistory&isin_inventory_code=2">出品停止</a>|
-<h1>出品した商品(出品中)</h1>
+<h1>出品した商品</h1>
 
 <c:forEach items="${items}" var="item">
 	タイトル：${item.title}<br>
 	著者名：${item.author}<br>
-	値段：${item.price}
+	値段：${item.price}円
 	<br>
 	</form>
 

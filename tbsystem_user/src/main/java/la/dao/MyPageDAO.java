@@ -30,7 +30,7 @@ public class MyPageDAO {
 
 	public List<InventoryBean> findPurchaseHistory(int userID) throws DAOException {
 		// SQL文の作成
-		String sql = "SELECT inventory.inventory_id, sell.sell_date, textbook.title, textbook.author, sell.user_id, inventory.price FROM inventory INNER JOIN SELL ON inventory.inventory_id=sell.inventory_id INNER JOIN textbook ON inventory.isbn=textbook.isbn WHERE inventory.user_id=?";
+		String sql = "SELECT inventory.inventory_id, sell.sell_date, textbook.title, textbook.author, sell.user_id, inventory.price FROM inventory INNER JOIN SELL ON inventory.inventory_id=sell.inventory_id INNER JOIN textbook ON inventory.isbn=textbook.isbn WHERE sell.user_id=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -176,7 +176,7 @@ public class MyPageDAO {
 
 	public int updateItem(int inventoryID, int stateCode, int price, String note) throws DAOException {
 		// SQL文の作成
-		String sql = "UPDATE inventory SET state_code=?, price=?, note=? WHERE inventory_id=?";
+		String sql = "UPDATE inventory SET state_code=?, price=?, note=?, inventory_update_date=CURRENT_DATE WHERE inventory_id=?";
 
 		try (// データベースへの接続
 				Connection con = DriverManager.getConnection(url, user, pass);

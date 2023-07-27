@@ -33,6 +33,7 @@ public class MyPageServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			// パラメータの解析
 			String action = request.getParameter("action");
+			//System.out.println(action);
 			if (action == null || action.length() == 0) {
 				gotoPage(request, response, "/myPage.jsp");
 			} else if (action.equals("purchaseHistory")) {

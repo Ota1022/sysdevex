@@ -23,7 +23,7 @@
 	購入日：${item.sellDate}<br>
 	タイトル：${item.title}<br>
 	著者名：${item.author}<br>
-	買値：${item.price}<br>
+	買値：${item.price}円<br>
 	<hr>
 </c:forEach>
 </div>

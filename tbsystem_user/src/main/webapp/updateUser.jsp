@@ -31,7 +31,6 @@
 				<td style="text-align: center">${user.email}</td>
 			</tr>
 			<tr>
-				.
 				<td style="text-align: right">住所：</td>
 				<td style="text-align: center"><input type="hidden"
 					name="action" value="updateUserConfirm"> <input type="text"

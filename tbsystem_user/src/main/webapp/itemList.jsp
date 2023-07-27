@@ -13,7 +13,9 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	<div class="main-content">
-
+	<div style="text-align: center">
+	
+	</div>
 
 		<h1>検索結果</h1>
 
