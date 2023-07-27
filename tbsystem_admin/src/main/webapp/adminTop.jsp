@@ -16,6 +16,8 @@
 		<div style="text-align: center">
 			<font size="6">管理者トップ</font>
 		</div>
+		<br>
+		<img src="img/ShinjukuUniversityLogo.png" alt="ShinjukuUniversityLogo" class="nav-logo">
 		<footer>
 			<div style="text-align: center">
 				<small>© 2023 アベレージャーズ All Rights Reserved.</small>
