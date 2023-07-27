@@ -16,10 +16,13 @@
 <h2>商品を削除しました</h2>
 
 		<p>
-		<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
+		<form action="/tbsystem_user/MyPageServlet" method="post">
 			<table style="margin: auto">
-				<td><input type="submit" value="確認"> <input
-					type="hidden" name="action" value="returnDisplayHistory"></td>
+				<td>
+				<input type="submit" value="確認">
+				<input type="hidden" name="action" value="displayHistory">
+				<input type="hidden" name="isin_inventory_code" value="1">
+				</td>
 			</table>
 		</form>
 		</p>

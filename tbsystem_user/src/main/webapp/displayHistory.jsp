@@ -34,7 +34,8 @@
 	値段：${item.price}
 	<br>
 	</form>
-	
+
+<c:if test="${isin_inventory_code eq 1}">
 	<div class="right">
 	<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
 	<input type="submit" value="更新">
@@ -54,7 +55,9 @@
 	<input type="hidden" name="title" value="${item.title}">
 	<input type="hidden" name="author" value="${item.author}">
 	<input type="hidden" name="price" value="${item.price}">
+	<input type="hidden" name="note" value="${item.note}">
 	</form>
+</c:if>	
 	</div>
 	
 	<hr>

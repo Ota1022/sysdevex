@@ -43,7 +43,7 @@
 				<p>タイトル：${title}</p>
 				<input type="hidden" name="title" value="${title}">
 				<p>著者名：${author}</p>
-<input type="hidden" name="author" value="${author}">
+				<input type="hidden" name="author" value="${author}">
 				<p>
 					状態：<select name="state_code">
 						<option value="0">新品・未使用</option>
@@ -60,6 +60,7 @@
 						<p>
 				コメント：
 				<textarea name="note" rows="5" cols="33" style="vertical-align:top">${note}</textarea>
+				<input type="hidden" name="note" value="${note}"
 			</p>
 		</div>
 

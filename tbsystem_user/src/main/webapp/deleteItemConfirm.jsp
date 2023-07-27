@@ -33,33 +33,26 @@
 	<div style="text-align: center">
 		<h1>以下の商品を本当に削除しますか？</h1>
 		<h2>商品情報</h2>
-		<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-			<p>タイトル：${item.title}</p>
-			<input type="hidden" name="title" value="${item.title}">
-			<p>著者名：${item.author}</p>
-			<p>状態：${item.stateName}</p>
-			<input type="hidden" name="state_name" value="${item.stateName}">
-			<p>値段：${item.price}円</p>
-			<input type="hidden" name="price" value="${item.price}">
-			<p>コメント：${item.note}</p>
-			<input type="hidden" name="note" value="${item.note}">
-
+			<p>タイトル：${title}</p>
+			<p>著者名：${author}</p>
+			<p>値段：${price}円</p>
+			<p>コメント：${note}</p>
 			<div class="right">
 				<p>
 				<table>
 					<td>
 						<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-							<input type="hidden" name="inventory_id"
-								value="${item.inventoryID}"> <input type="submit"
-								value="はい" class="example2"> <input type="hidden"
-								name="action" value="deleteItemConfirm">
+								<input type="submit" value="はい" class="example2">
+								<input type="hidden" name="action" value="deleteItemComplete">
+								<input type="hidden" name="inventory_id" value="${inventory_id}">
 						</form>
 					</td>
 
 					<td>
-						<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-							<input type="submit" value="いいえ" class="example2"> <input
-								type="hidden" name="action" value="returnDisplayHistory">
+						<form action="/tbsystem_user/MyPageServlet" method="post">
+							<input type="submit" value="いいえ" class="example2">
+							<input type="hidden" name="action" value="displayHistory">
+							<input type="hidden" name="isin_inventory_code" value="1">
 						</form>
 					</td>
 				</table>

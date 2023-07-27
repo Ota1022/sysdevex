@@ -71,10 +71,12 @@ public class DisplayHistoryServlet extends HttpServlet {
 				String title = request.getParameter("title");
 				String author = request.getParameter("author");
 				int price = Integer.parseInt(request.getParameter("price"));
+				String note = request.getParameter("note");
 				request.setAttribute("inventory_id", inventoryID);
 				request.setAttribute("title", title);
 				request.setAttribute("author", author);
 				request.setAttribute("price", price);
+				request.setAttribute("note", note);
 				gotoPage(request, response, "/deleteItemConfirm.jsp");
 			} else if (action.equals("deleteItemComplete")) {
 				MyPageDAO dao = new MyPageDAO();

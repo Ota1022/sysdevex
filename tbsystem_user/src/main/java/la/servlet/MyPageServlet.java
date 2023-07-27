@@ -51,6 +51,7 @@ public class MyPageServlet extends HttpServlet {
 				int isinInventoryCode = Integer.parseInt(request.getParameter("isin_inventory_code"));
 				List<InventoryBean> items = dao.findByIsinInventory(userID, isinInventoryCode);
 				request.setAttribute("items", items);
+				request.setAttribute("isin_inventory_code", isinInventoryCode);
 				gotoPage(request, response, "/displayHistory.jsp");
 			} else if (action.equals("userInfo")) {
 				MyPageDAO dao = new MyPageDAO();
@@ -93,9 +94,21 @@ public class MyPageServlet extends HttpServlet {
 				UserBean bean = (UserBean) session.getAttribute("user");
 				int userID = bean.getUserID();
 				String address = request.getParameter("address");
+				bean.setAddress(address);
 				String tel = request.getParameter("tel");
+				bean.setTel(tel);
 				String password = request.getParameter("password");
+				bean.setPassword(password);
 				dao.updateUser(userID, address, tel, password);
+				/*String name = bean.getName();
+				String email = bean.getEmail();
+				Date registDate = bean.getRegist_date();
+				Date deleteDate = bean.getDelete_date();
+				Date birthday = bean.getBirthday();
+				UserBean newBean = new UserBean(userID, name, password, email, address, tel, registDate, deleteDate,
+						birthday);
+				session.setAttribute("user", newBean);*/
+				session.setAttribute("user", bean);
 				gotoPage(request, response, "/updateUserComplete.jsp");
 			} else if (action.equals("deleteUserForm")) {
 				HttpSession session = request.getSession(true);

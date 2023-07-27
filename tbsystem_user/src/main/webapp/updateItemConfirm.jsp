@@ -31,13 +31,15 @@
 <body>
 	<%@ include file="/header.jsp"%>
 	<div style="text-align: center">
+		<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
+		<input type="hidden" name="inventory_id" value="${item.inventoryID}">
 		<h1>以下の情報で更新を確定しますか？</h1>
 		<h2>商品情報</h2>
 		<p>タイトル：${item.title}</p>
 		<input type="hidden" name="title" value="${item.title}">
 		<p>著者名：${item.author}</p>
 		<p>状態：${item.stateName}</p>
-		<input type="hidden" name="state_name" value="${item.stateName}">
+		<input type="hidden" name="state_code" value="${item.stateCode}">
 		<p>値段：${item.price}円</p>
 		<input type="hidden" name="price" value="${item.price}">
 		<p>コメント：${item.note}</p>
@@ -45,18 +47,20 @@
 
 		<table style="margin: auto">
 			<td>
-				<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-					<input type="hidden" name="inventory_id"
-						value="${item.inventoryID}"> <input type="submit"
-						value="はい" class="example2"> <input type="hidden"
-						name="action" value="updateItemComplete">
+					<input type="submit" value="はい" class="example2">
+					<input type="hidden" name="action" value="updateItemComplete">
 				</form>
 			</td>
 
 			<td>
 				<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-					<input type="submit" value="いいえ" class="example2"> <input
-						type="hidden" name="action" value="updateItem">
+				<input type="hidden" name="inventory_id" value="${item.inventoryID}">
+				<input type="hidden" name="title" value="${item.title}">
+				<input type="hidden" name="author" value="${item.author}">
+				<input type="hidden" name="price" value="${item.price}">
+				<input type="hidden" name="note" value="${item.note}">
+					<input type="submit" value="いいえ" class="example2">
+					<input type="hidden" name="action" value="updateItem">
 				</form>
 			</td>
 		</table>

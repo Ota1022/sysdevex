@@ -25,12 +25,12 @@
 	<form action="/tbsystem_user/MyPageServlet" method="Post"
 		id="delete_user">
 		<input type="hidden" name="action" value="deleteUserConfirm">
-		<input type="text" name="password">
-	</form>
+		<input type="password" name="password">
 	</p>
 	<p>
 	<table style="margin: auto">
 		<td><input type="submit" value="確認" form="delete_user"></td>
+		</form>
 		<td>
 			<form action="/tbsystem_user/MyPageServlet" method="Post">
 				<input type="hidden" name="action" value="userInfo"> <input

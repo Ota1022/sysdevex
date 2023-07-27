@@ -67,13 +67,7 @@
 			type="submit" value="戻る"></p>
 	</form>
 </div>
-						<form action="/tbsystem_user/MyPageServlet" method="Post">
-							<input type="hidden" name="action" value="userInfo"> <input
-								type="submit" value="戻る">
-						</form>
-					</table>
-				</td>
-		</table>
+</table>
 </body>
 
 <footer>
