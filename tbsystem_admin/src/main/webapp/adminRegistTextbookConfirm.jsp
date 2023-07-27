@@ -9,21 +9,26 @@
 <title>教科書情報の更新確認</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">以下の教科書情報で登録しますか</font><br> <font size="3">教科書情報</font><br>
 
-		ISBN：${isbn} <br> タイトル：${title} <br> 分類：${category_name} <br>
-		著者：${author}
+		ISBN：${textbook.isbn} <br> タイトル：${textbook.title} <br> 分類：${textbook.categoryName} <br>
+		著者：${textbook.author}
 
-		<form action="/tbsystem_admin/AdminSearchTextbookServlet"
+		<form action="/tbsystem_admin/AdminRegistTextbookServlet"
 			method="Post">
 			<input type="hidden" name="action" value="registTextbookComplete">
 			<input type="submit" value="はい">
+			<input type="hidden" name="isbn" value="${textbook.isbn}">
+			<input type="hidden" name="title" value="${textbook.title}">
+			<input type="hidden" name="category_code" value="${textbook.categoryCode}">
+			<input type="hidden" name="author" value="${textbook.author}">
 		</form>
-		<form action="/tbsystem_admin/AdminSearchTextbookServlet"
+		<form action="/tbsystem_admin/AdminRegistTextbookServlet"
 			method="Post">
-			<input type="hidden" name="action" value="registTextbook"> <input
-				type="submit" value="いいえ">
+			<input type="hidden" name="action" value="registTextbook"> 
+			<input type="submit" value="いいえ">
 		</form>
 	</div>
 </body>

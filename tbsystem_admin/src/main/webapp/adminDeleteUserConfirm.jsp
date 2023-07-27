@@ -8,6 +8,7 @@
 <title>管理者ページ</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 
 	<div style="text-align: center">
 		<font size="7">以下の会員情報を本当に削除しますか</font><br> <font size="3">会員情報</font><br>

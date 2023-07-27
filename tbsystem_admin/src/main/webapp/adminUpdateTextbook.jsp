@@ -21,7 +21,7 @@
 		<table>
 			<tr>
 				<td><div style="text-align: right">ISBN：</div></td>
-				<td><input type="text" name="isbn"value=${textbook.isbn} required></td>
+				<td>${textbook.isbn}<input type="hidden" name="isbn"value=${textbook.isbn} required></td>
 			</tr>
 			<tr>
 				<td><div style="text-align: right">タイトル：</div></td>
@@ -56,8 +56,7 @@
 					<input type="hidden"
 					name="isbn_before" value=${textbook.isbn}>
 					
-					 <input
-					type="submit" value="更新"></td>
+					 <input type="submit" value="更新"></td>
 			</tr>
 		</table>
 	</form>

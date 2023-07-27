@@ -188,11 +188,10 @@ public class AdminSearchTextbookDAO {
 			while (rs.next()) {
 				int isin_inventory_code = rs.getInt("isin_inventory_code");
 				System.out.println(isin_inventory_code);
-				if (isin_inventory_code == 1) {
+				if (isin_inventory_code == 1 || isin_inventory_code == 0 || isin_inventory_code == 2) {
 					return false;
 				}
 			}
-
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

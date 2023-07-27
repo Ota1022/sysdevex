@@ -9,6 +9,7 @@
 <title>教科書情報の更新確認</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">以下の教科書情報で更新しますか</font><br> <font size="3">教科書情報</font><br>
 

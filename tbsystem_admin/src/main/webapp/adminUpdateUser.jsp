@@ -10,7 +10,7 @@
 <title>管理者ページ</title>
 </head>
 <body>
-
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">会員情報の更新</font><br>
 	</div>

@@ -7,6 +7,7 @@
 <title>管理者画面</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<h3>在庫情報の更新</h3>
 	<h3>更新したいものを入力してください</h3>
 	<form action="/tbsystem_admin/AdminSearchInventoryServlet" method="get">

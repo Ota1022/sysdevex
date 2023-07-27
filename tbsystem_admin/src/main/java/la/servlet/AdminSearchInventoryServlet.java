@@ -41,7 +41,7 @@ public class AdminSearchInventoryServlet extends HttpServlet {
 			String action = request.getParameter("action");
 			List<InventoryBean> list = null;
 			AdminSearchInventoryDAO dao = new AdminSearchInventoryDAO();
-			if (action == null || action.length() == 0) {
+			if (action == null || action.length() == 0 || action.equals("searchInventory")) {
 				list = dao.findAll();
 				request.setAttribute("inventory", list);
 				gotoPage(request, response, "/adminSearchInventory.jsp");

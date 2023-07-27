@@ -7,6 +7,7 @@
 <title>管理者ページ</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 
 <h1>会員情報を削除しました</h1>
 

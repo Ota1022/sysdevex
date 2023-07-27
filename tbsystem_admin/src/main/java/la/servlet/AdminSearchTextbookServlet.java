@@ -62,9 +62,7 @@ public class AdminSearchTextbookServlet extends HttpServlet {
 		} else if (action.equals("returnSearchTextbook")) {
 
 			try {
-
 				String category = request.getParameter("category");
-
 				String text = request.getParameter("text");
 				AdminSearchTextbookDAO dao = new AdminSearchTextbookDAO();
 				List<TextbookBean> list = dao.findByTextbook(category, text);
@@ -88,9 +86,7 @@ public class AdminSearchTextbookServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if (action.equals("updateTextbook")) {
-
 			try {
-
 				//int user_id = Integer.parseInt(request.getParameter("user_id"));
 				String isbn = request.getParameter("isbn");
 				//String address = request.getParameter("address");

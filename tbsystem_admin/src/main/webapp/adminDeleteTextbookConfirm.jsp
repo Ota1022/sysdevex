@@ -9,6 +9,7 @@
 <title>教科書情報の削除確認</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<font size="7">以下の教科書情報を本当に削除しますか</font><br> <font size="3">教科書情報</font><br>
 
@@ -18,7 +19,7 @@
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 				method="Post">
 				<input type="hidden" name="action" value="deleteTextbookComplete">
-				<input type="hidden" name="isbn" value="${textbook.isbn}">	
+				<input type="hidden" name="isbn" value=${textbook.isbn}>	
 				<input type="submit" value="はい">
 			</form>
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"

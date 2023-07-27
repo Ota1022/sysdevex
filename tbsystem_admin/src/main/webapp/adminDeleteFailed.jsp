@@ -9,10 +9,11 @@
 <title>教科書情報の削除確認</title>
 </head>
 <body>
+
 	<jsp:include page="/adminHeader.jsp" />
 	<div class="main-content">
 		<div style="text-align: center">
-			<font size="7">この教科書は出品されているため、削除することができません</font><br> <font
+			<font size="7">この教科書は取引履歴があるため、削除することができません</font><br> <font
 				size="3">教科書情報</font><br> 
 			ISBN：${textbook.isbn} <br> タイトル：${textbook.title} <br> 分類：${textbook.categoryName} <br>
 			著者：${textbook.author}
@@ -21,7 +22,7 @@
 
 			<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 				method="Post">
-				<input type="hidden" name="action" value="returnSearchTextbook"> <input
+				<input type="hidden" name="action" value="SearchTextbook"> <input
 					type="submit" value="戻る">
 			</form>
 		</div>

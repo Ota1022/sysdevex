@@ -44,16 +44,16 @@
 						<td>
 							<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 								method="post">
-								<input type="hidden" name="action" value="updateUser"> <input
-									type="hidden" name="user_id" value=${user.userID}> <input
-									type="submit" value="更新">
+								<input type="hidden" name="action" value="updateTextbook"> 						<input type="hidden" name="action" value="updateTextbook"> <input
+							<input type="hidden" name="isbn" value=${textbook.isbn}> 
+							<input type="submit" value="更新">
 							</form>
 						</td>
 						<td>
 							<form action="/tbsystem_admin/AdminSearchTextbookServlet"
 								method="post">
-								<input type="hidden" name="action" value="deleteUserConfirm">
-								<input type="hidden" name="user_id" value=${user.userID}>
+								<input type="hidden" name="action" value="deleteTextbookConfirm">
+								<input type="hidden" name="isbn" value=${textbook.isbn}>
 								<input type="submit" value="削除">
 							</form>
 						</td>

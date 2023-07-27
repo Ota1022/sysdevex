@@ -23,7 +23,7 @@
 							src="img/suniv_banner.png" alt="Suniv Banner" class="nav-logo">
 					</a></li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/adminSearchInventory.jsp"><img
+						href="/tbsystem_admin/AdminSearchInventoryServlet"><img
 							src="img/inventory_search.png" alt="searchInventory"
 							class="nav-logo"></a></li>
 					<li class="nav__item"><a
@@ -31,11 +31,11 @@
 							src="img/member_search.png" alt="searchUser" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/adminRegistTextbook.jsp"><img
+						href="/tbsystem_admin/AdminRegistTextbookServlet"><img
 							src="img/tb_regist.png" alt="registTextbook" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a
-						href="/tbsystem_admin/adminSearchTextbook.jsp"><img
+						href="/tbsystem_admin/AdminSearchTextbookServlet"><img
 							src="img/tb_search.png" alt="searchTextbook" class="nav-logo"></a></li>
 					</li>
 					<li class="nav__item"><a href="/tbsystem_admin/adminLogin.jsp"><img

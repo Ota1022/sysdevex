@@ -7,6 +7,7 @@
 <title>管理者トップ</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<h3>以下の在庫情報を出品停止しますか</h3>
 	</div>

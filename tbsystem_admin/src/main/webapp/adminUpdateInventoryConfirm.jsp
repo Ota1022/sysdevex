@@ -8,6 +8,7 @@
 <title>管理者画面</title>
 </head>
 <body>
+<jsp:include page="/adminHeader.jsp" />
 	<div style="text-align: center">
 		<h3>以下の在庫情報を更新しますか</h3>
 	</div>
