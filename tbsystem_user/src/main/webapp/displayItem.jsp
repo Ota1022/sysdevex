@@ -56,8 +56,9 @@
 			<tr>
 				<td></td>
 				<td style="text-align: right"><input type="hidden"
-					name="action" value="returnDisplayHistory"> <input
-					type="submit" value="検索"></td>
+					name="action" value="returnDisplayHistory"> <input type="hidden"
+					name="isbn" value="${textbook.isbn }"> <input
+					type="submit" value="更新"></td>
 			</tr>
 		</table>
 	</form>

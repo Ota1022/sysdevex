@@ -11,75 +11,83 @@
 <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-<jsp:include page="/header.jsp" />
-<div class="main-content">
+	<jsp:include page="/header.jsp" />
+	<div class="main-content">
 
-	<h1>商品情報</h1>
+		<h1>商品情報</h1>
 
-	<table>
-		<tr>
-			<td><div style="text-align: right">教科書名：</div></td>
-			<td>${inventory.title }</td>
-		</tr>
-		<tr>
-			<td><div style="text-align: right">著者名：</div></td>
-			<td>${inventory.author }</td>
-		</tr>
-		<tr>
-			<td><div style="text-align: right">値段：</div></td>
-			<td>${inventory.price }円</td>
-		</tr>
-		<tr>
-			<td><div style="text-align: right">状態：</div></td>
-			<td>${inventory.stateName }</td>
-		</tr>
-		<tr>
-			<td><div style="text-align: right">コメント：</div></td>
-			<td>${inventory.note }円</td>
-		</tr>
-	</table>
-
-	<c:if test="${user.userID ne inventory.userIDSeller }">
-		<table style="margin: auto">
+		<table>
 			<tr>
-				<td>
-					<form action="/tbsystem_user/PurchaseServlet" method="post">
-						<input type="hidden" name="action" value="purchaseConfirm">
-						<input type="hidden" name="inventory_id"
-							value="${inventory.inventoryID }"> <input type="submit"
-							value="購入">
-					</form>
-				</td>
-				<td>
-					<form action="/tbsystem_user/PurchaseServlet" method="post">
-						<input type="hidden" name="action" value="returnItemList">
-						<input type="submit" value="戻る">
-					</form>
-				</td>
+				<td><div style="text-align: right">教科書名：</div></td>
+				<td>${inventory.title }</td>
+			</tr>
+			<tr>
+				<td><div style="text-align: right">著者名：</div></td>
+				<td>${inventory.author }</td>
+			</tr>
+			<tr>
+				<td><div style="text-align: right">値段：</div></td>
+				<td>${inventory.price }円</td>
+			</tr>
+			<tr>
+				<td><div style="text-align: right">状態：</div></td>
+				<td>${inventory.stateName }</td>
+			</tr>
+			<tr>
+				<td><div style="text-align: right">コメント：</div></td>
+				<td>${inventory.note }円</td>
 			</tr>
 		</table>
-	</c:if>
-	
-	<c:if test="${user.userID eq inventory.userIDSeller }">
-		<table style="margin: auto">
-			<tr>
-				<td>
-					<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
-						<input type="hidden" name="action" value="updateItem">
-						<input type="hidden" name="inventory_id"
-							value="${inventory.inventoryID }"> <input type="submit"
-							value="更新">
-					</form>
-				</td>
-				<td>
-					<form action="/tbsystem_user/PurchaseServlet" method="post">
-						<input type="hidden" name="action" value="returnItemList">
-						<input type="submit" value="戻る">
-					</form>
-				</td>
-			</tr>
-		</table>
-	</c:if>
+
+		<c:if test="${user.userID ne inventory.userIDSeller }">
+			<table style="margin: auto">
+				<tr>
+					<td>
+						<form action="/tbsystem_user/PurchaseServlet" method="post">
+							<input type="hidden" name="action" value="purchaseConfirm">
+							<input type="hidden" name="inventory_id"
+								value="${inventory.inventoryID }"> <input type="hidden"
+								name="category_code" value="${categoryCode }"> <input
+								type="hidden" name="query" value="${query}"> <input
+								type="submit" value="購入">
+						</form>
+					</td>
+					<td>
+						<form action="/tbsystem_user/PurchaseServlet" method="post">
+							<input type="hidden" name="action" value="itemList">
+							<input type="hidden" name="category_code"
+								value="${categoryCode }"> <input type="hidden"
+								name="query" value="${query}"> <input type="submit"
+								value="戻る">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</c:if>
+
+		<c:if test="${user.userID eq inventory.userIDSeller }">
+			<table style="margin: auto">
+				<tr>
+					<td>
+						<form action="/tbsystem_user/DisplayHistoryServlet" method="post">
+							<input type="hidden" name="action" value="updateItem"> <input
+								type="hidden" name="inventory_id"
+								value="${inventory.inventoryID }"> <input type="submit"
+								value="更新">
+						</form>
+					</td>
+					<td>
+						<form action="/tbsystem_user/PurchaseServlet" method="post">
+							<input type="hidden" name="action" value="itemList">
+							<input type="hidden" name="category_code"
+								value="${categoryCode }"> <input type="hidden"
+								name="query" value="${query}"> 
+							<input type="submit" value="戻る">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</c:if>
 </body>
 <footer>
 	<div style="text-align: center">

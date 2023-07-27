@@ -59,7 +59,7 @@ public class PurchaseDAO {
 
 	public List<InventoryBean> findByTitle(String query) throws DAOException {
 		//SQL textbookとinventoryをisbnで、inventoryとstateをstate_codeで結合する
-		String sql = "SELECT * FROM inventory INNER JOIN textbook ON inventory.isbn = textbook.isbn INNER JOIN state ON inventory.state_code = state.state_code INNER JOIN category ON textbook.category_code = category.category_code WHERE title LIKE ?";
+		String sql = "SELECT * FROM inventory INNER JOIN textbook ON inventory.isbn = textbook.isbn INNER JOIN state ON inventory.state_code = state.state_code INNER JOIN category ON textbook.category_code = category.category_code WHERE title LIKE ? AND inventory.isin_inventory_code = 1";
 
 		try (//Connect DB
 				Connection con = DriverManager.getConnection(url, user, pass);
@@ -96,7 +96,7 @@ public class PurchaseDAO {
 
 	public List<InventoryBean> findByTitleAndCategory(String query, int categoryCode) throws DAOException {
 		//SQL textbookとinventoryをisbnで、inventoryとstateをstate_codeで結合する
-		String sql = "SELECT * FROM inventory INNER JOIN textbook ON inventory.isbn = textbook.isbn INNER JOIN state ON inventory.state_code = state.state_code INNER JOIN category ON textbook.category_code = category.category_code WHERE title LIKE ? AND textbook.category_code = ?";
+		String sql = "SELECT * FROM inventory INNER JOIN textbook ON inventory.isbn = textbook.isbn INNER JOIN state ON inventory.state_code = state.state_code INNER JOIN category ON textbook.category_code = category.category_code WHERE title LIKE ? AND textbook.category_code = ? AND inventory.isin_inventory_code = 1";
 
 		try (//Connect DB
 				Connection con = DriverManager.getConnection(url, user, pass);

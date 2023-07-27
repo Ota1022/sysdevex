@@ -26,7 +26,7 @@ public class UserDAO {
 
 	public UserBean findByEmailAndPassword(String email, String password) throws DAOException {
 		//SQL
-		String sql = "SELECT * FROM user_table WHERE email = ? AND password = ?";
+		String sql = "SELECT * FROM user_table WHERE email = ? AND password = ? AND delete_date IS NULL";
 
 		try (//Connect DB
 				Connection con = DriverManager.getConnection(url, user, pass);

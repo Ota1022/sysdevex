@@ -59,16 +59,17 @@ public class PurchaseServlet extends HttpServlet {
 				System.out.println(categoryCode);
 
 				if (categoryCode == null || categoryCode.length() == 0) {
-					if ((query == null || query.length() == 0)) {
-						//(query, category_code)=(null, null)ならtop.jsp表示
-						gotoPage(request, response, "/top.jsp");
-					} else {
-						//(query, category_code)=(exist, null)ならqueryだけで検索
-						PurchaseDAO dao = new PurchaseDAO();
-						List<InventoryBean> inventoryList = dao.findByTitle(query);
-						request.setAttribute("inventoryList", inventoryList);
-						gotoPage(request, response, "/itemList.jsp");
-					}
+					//if ((query == null || query.length() == 0)) {
+					//	//(query, category_code)=(null, null)ならtop.jsp表示
+					//	gotoPage(request, response, "/top.jsp");
+					//} else {
+					//(query, category_code)=(exist, null)ならqueryだけで検索
+					PurchaseDAO dao = new PurchaseDAO();
+					List<InventoryBean> inventoryList = dao.findByTitle(query);
+					request.setAttribute("inventoryList", inventoryList);
+					request.setAttribute("query", query);
+					gotoPage(request, response, "/itemList.jsp");
+					//}
 				} else {
 					//(query, category_code)=(exist, exist)
 					//(query, category_code)=(null, exist)なら両方使って検索
@@ -76,22 +77,32 @@ public class PurchaseServlet extends HttpServlet {
 					List<InventoryBean> inventoryList = dao.findByTitleAndCategory(query,
 							Integer.parseInt(categoryCode));
 					request.setAttribute("inventoryList", inventoryList);
+					request.setAttribute("categoryCode", categoryCode);
+					request.setAttribute("query", query);
 					gotoPage(request, response, "/itemList.jsp");
 				}
 			} else if (action.equals("itemDetail")) {
 				//商品詳細画面へ
 				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				String query = request.getParameter("query");
+				String categoryCode = request.getParameter("category_code");
 				PurchaseDAO dao = new PurchaseDAO();
 				InventoryBean inventory = dao.findByPrimaryKey(inventoryID);
 				request.setAttribute("inventory", inventory);
+				request.setAttribute("categoryCode", categoryCode);
+				request.setAttribute("query", query);
 				gotoPage(request, response, "/itemDetail.jsp");
 
 			} else if (action.equals("purchaseConfirm")) {
 				//購入確認画面へ
 				int inventoryID = Integer.parseInt(request.getParameter("inventory_id"));
+				String query = request.getParameter("query");
+				String categoryCode = request.getParameter("category_code");
 				PurchaseDAO dao = new PurchaseDAO();
 				InventoryBean inventory = dao.findByPrimaryKey(inventoryID);
 				request.setAttribute("inventory", inventory);
+				request.setAttribute("categoryCode", categoryCode);
+				request.setAttribute("query", query);
 				gotoPage(request, response, "/purchaseConfirm.jsp");
 
 			} else if (action.equals("purchaseComplete")) {
@@ -112,6 +123,7 @@ public class PurchaseServlet extends HttpServlet {
 				dao.updateInventoryStateCode(inventoryID, 0);
 				request.setAttribute("receiptID", receiptID);
 				gotoPage(request, response, "/purchaseComplete.jsp");
+
 			}
 
 		} catch (DAOException e) {
